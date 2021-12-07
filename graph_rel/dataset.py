@@ -16,10 +16,10 @@ NUM_REL = dict()
 MXL = 0
 
 for d in tr:
-    sent = d[0]
+    sent = d["sentText"]
     MXL = max(len(sent)+4, MXL)
     
-    rels = d[1]
+    rels = d["relationMentions"]
     
     for rel in rels:
         rel = rel[2]
