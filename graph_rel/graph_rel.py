@@ -3,7 +3,6 @@ import torch.nn as nn
 from torch.utils.data import Dataset, DataLoader
 from gcn import GCN
 
-NUM_POS = 10
 ARCH = '2p'
 
 class Model_GraphRel(nn.Module):
@@ -95,4 +94,3 @@ class Model_GraphRel(nn.Module):
         out_ne2, out_rel2 = self.output(feat_2p)
         
         return out_ne1, out_rel1, out_ne2, out_rel2
-
