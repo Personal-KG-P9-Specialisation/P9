@@ -12,7 +12,7 @@ class DS(Dataset):
         return self.data[idx]
 
 tr = json.loads(open("nyttest.json","r").read())
-NUM_REL = dict()
+NUM_REL = 0
 MXL = 0
 
 for d in tr:
@@ -20,14 +20,8 @@ for d in tr:
     MXL = max(len(sent)+4, MXL)
     
     rels = d["relationMentions"]
-    
-    for rel in rels:
-        
-        if not rel in NUM_REL:
-            NUM_REL[rel] = 1
+    NUM_REL = max(len(rels),NUM_REL)
 
-print(NUM_REL)
-            
-NUM_REL = len(NUM_REL) + 1 # 0 for NA
+NUM_REL = NUM_REL + 1 # 0 for NA
 print('Num of relation: %d' % (NUM_REL))
 print('Max length: %d' % (MXL))
