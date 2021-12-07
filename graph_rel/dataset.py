@@ -22,7 +22,6 @@ for d in tr:
     rels = d["relationMentions"]
     
     for rel in rels:
-        rel = rel[2]
         
         if not rel in NUM_REL:
             NUM_REL[rel] = 1
