@@ -7,6 +7,7 @@ ARCH = '2p'
 
 class Model_GraphRel(nn.Module):
     def __init__(self, mxl, num_rel,hid_size=256, rnn_layer=2,gcn_layer=2,dp=0.5):
+        super(Model_GraphRel,self).__init__()
         self.mxl=mxl
         self.num_rel=num_rel
         self.hid_size = hid_size
@@ -15,7 +16,7 @@ class Model_GraphRel(nn.Module):
         self.dp = dp
         
         #num pos needs to be defined
-        self.emb_pos = nn.Embedding(NUM_POS,15)
+        self.emb_pos = nn.Embedding(100,15)
 
         self.rnn= nn.GRU(300+15, self.hid_size, num_layers=self.rnn_layer,batch_first=True, dropout=dp, bidirectional=True)
         #meed GCN module

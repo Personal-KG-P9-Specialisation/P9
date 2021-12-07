@@ -30,22 +30,12 @@ print('Max length: %d' % (MXL))
 
 import spacy
 
-NLP = spacy.load('en_core_web_lg')
+ld_tr = DataLoader(DS(tr), batch_size=1)
 
-POS = dict()
-for pos in list(NLP.tagger.labels):
-    POS[pos] = len(POS)+1
+#ld_tr = DataLoader(DS(tr), batch_size=32, shuffle=True)
 
-NUM_POS = len(POS) + 1 # 0 for NA
-print(POS)
-print('Num of pos: %d' % (NUM_POS))
-ld_tr = DataLoader(DS(tr), batch_size=32, shuffle=True)
-
-for idx, inp, pos, dep_fw, dep_bw, ans_ne, wgt_ne, ans_rel, wgt_rel in ld_tr:
-    print(idx.shape)
-    print(inp.shape, pos.shape, dep_fw.shape, dep_bw.shape)
-    print(ans_ne.shape, wgt_ne.shape)
-    print(ans_rel.shape, wgt_rel.shape)
+for x in ld_tr:
+    print(x)
     break
 gcn = GCN().cuda()
 print(gcn)
