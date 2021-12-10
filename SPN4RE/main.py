@@ -50,9 +50,9 @@ if __name__ == '__main__':
     
     
     data_arg.add_argument('--dataset_name', type=str, default="WebNLG")
-    data_arg.add_argument('--train_file', type=str, default="./data/WebNLG/clean_WebNLG/new_train.json")
-    data_arg.add_argument('--valid_file', type=str, default="./data/WebNLG/clean_WebNLG/new_valid.json")
-    data_arg.add_argument('--test_file', type=str, default="./data/WebNLG/clean_WebNLG/new_test.json")
+    data_arg.add_argument('--train_file', type=str, default="./data/WebNLG/clean_WebNLG/train.json")
+    data_arg.add_argument('--valid_file', type=str, default="./data/WebNLG/clean_WebNLG/valid.json")
+    data_arg.add_argument('--test_file', type=str, default="./data/WebNLG/clean_WebNLG/test.json")
 
     data_arg.add_argument('--generated_data_directory', type=str, default="./data/generated_data/")
     data_arg.add_argument('--generated_param_directory', type=str, default="./data/generated_data/model_param/")
