@@ -1,19 +1,25 @@
-import torch, collections
+import torch, collections,sys, traceback
 
 
 def list_index(list1: list, list2: list) -> list:
     start = [i for i, x in enumerate(list2) if x == list1[0]]
     end = [i for i, x in enumerate(list2) if x == list1[-1]]
-    if len(start) == 1 and len(end) == 1:
-        return start[0], end[0]
-    else:
-        for i in start:
-            for j in end:
-                if i <= j:
-                    if list2[i:j+1] == list1:
-                        index = (i, j)
-                        break
-        return index[0], index[1]
+    try:
+        if len(start) == 1 and len(end) == 1:
+            return start[0], end[0]
+        else:
+            for i in start:
+                for j in end:
+                    if i <= j:
+                        if list2[i:j+1] == list1: #this means that the entity mentions should be substrings otherwise will not work
+                            index = (i, j)
+                            break
+            return index[0], index[1]
+    except UnboundLocalError:
+        print(traceback.format_exc())
+        print("index not bound:\n")
+        print("inputs :",list1,list2)
+        sys.exit()
 
 
 
@@ -57,7 +63,9 @@ def data_process(input_doc, relational_alphabet, tokenizer):
             tail_token = tokenizer.tokenize(tail_entity)
             relation_id = relational_alphabet.get_index(triple["label"])
             head_start_index, head_end_index = list_index(head_token, token_sent)
+            #print("head: ", head_entity,head_token)
             assert head_end_index >= head_start_index
+            #print("tail: ", tail_entity, tail_token)
             tail_start_index, tail_end_index = list_index(tail_token, token_sent)
             assert tail_end_index >= tail_start_index
             target["relation"].append(relation_id)
