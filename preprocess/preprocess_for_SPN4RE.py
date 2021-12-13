@@ -2,10 +2,10 @@ import json
 
 def one_entity_mention(file):
     data=list()
-    with open(file,"r") as f:
+    with open("{}.json".format(file),"r") as f:
         for l in f:
             data.append(json.loads(l))
-    with open("n_{}".format(file),"w") as f:
+    with open("{}_new.json".format(file),"w") as f:
         for x in data:
             new_rels = list()
             for rel in x["relationMentions"]:
@@ -22,4 +22,7 @@ def one_entity_mention(file):
             f.write("\n")
         f.flush()
 
-        
+one_entity_mention("/home/test/Github/code/SPN4RE/data/WebNLG/clean_WebNLG/valid")        
+one_entity_mention("/home/test/Github/code/SPN4RE/data/WebNLG/clean_WebNLG/train")        
+one_entity_mention("/home/test/Github/code/SPN4RE/data/WebNLG/clean_WebNLG/test")
+
