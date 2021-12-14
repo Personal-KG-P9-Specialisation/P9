@@ -66,18 +66,15 @@ def coreference_resolution (text):
 # Extracts chains of coreferences.
 def triple_integration (text):
     li = text.replace("!", " ").replace("?", " ").replace(",", " ").replace(".", " ")
-    #li = re.sub(r'[^\w]', ' ', text)
-    #coref_chains = coreference_resolution(text)
     coref_chains = coreference_resolution(text)
     for chain in coref_chains:
         for ref in chain:
             li = li.replace(ref[3], chain[0][3])
     
-    print(li)
-    #triples = openie_extract_triples(li)
-    openie_graph(li)
-    #print(triples)
-    #print(coref_chains[0][0][0])
+    # Extracts triples on the text annotated with coreference chains.
+    triples = openie_extract_triples(li)
+
+    return triples
 
 # Performs entity linking using the Spacy library.
 def entity_linking (text):
@@ -101,11 +98,11 @@ if __name__ == '__main__':
     #triple_corpus = extract_triples()
     # print_triple_corpus(triple_corpus)
     data = open_corpus()
-    triple_integration(data)
+    #triple_integration(data)
     #text = triple_list_to_string(corp)
     #print (corp)
     #corp = open_corpus()
     # openie_graph()
     #coreference_resolution(corp)
     # print(text)
-    #entity_linking(text)
+    entity_linking(data)
