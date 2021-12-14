@@ -4,10 +4,10 @@ import torch, collections,sys, traceback
 def list_index(list1: list, list2: list) -> list:
     start = [i for i, x in enumerate(list2) if x == list1[0]]
     end = [i for i, x in enumerate(list2) if x == list1[-1]]
-    try:
-        if len(start) == 1 and len(end) == 1:
+    #try:
+    if len(start) == 1 and len(end) == 1:
             return start[0], end[0]
-        else:
+    else:
             for i in start:
                 for j in end:
                     if i <= j:
@@ -15,11 +15,11 @@ def list_index(list1: list, list2: list) -> list:
                             index = (i, j)
                             break
             return index[0], index[1]
-    except UnboundLocalError:
-        print(traceback.format_exc())
-        print("index not bound:\n")
-        print("inputs :",list1,list2)
-        sys.exit()
+    #except UnboundLocalError:
+    #    print(traceback.format_exc())
+    #    print("index not bound:\n")
+    #    print("inputs :",list1,list2)
+    #    sys.exit()
 
 
 
@@ -62,12 +62,29 @@ def data_process(input_doc, relational_alphabet, tokenizer):
             head_token = tokenizer.tokenize(head_entity)
             tail_token = tokenizer.tokenize(tail_entity)
             relation_id = relational_alphabet.get_index(triple["label"])
-            head_start_index, head_end_index = list_index(head_token, token_sent)
+            try:
+                head_start_index, head_end_index = list_index(head_token, token_sent)
             #print("head: ", head_entity,head_token)
-            assert head_end_index >= head_start_index
-            #print("tail: ", tail_entity, tail_token)
-            tail_start_index, tail_end_index = list_index(tail_token, token_sent)
-            assert tail_end_index >= tail_start_index
+                assert head_end_index >= head_start_index
+                tail_start_index, tail_end_index = list_index(tail_token, token_sent)
+                #print("tail: ", tail_start_index, tail_end_index)
+                #print("tail conti: ", tail_entity, tail_token)
+                #print("token: ",token_sent)
+                assert tail_end_index >= tail_start_index
+            except UnboundLocalError:
+                with open("/home/test/Github/code/SPN4RE/log.txt","a") as f:
+                    f.write("UnboundError: \t")
+                    f.write(str(triple))
+                    f.write("\t"+lines[i]["sentText"]+"\n")
+                    f.flush()
+                continue
+            except AssertionError:
+                with open("/home/test/Github/code/SPN4RE/log.txt","a") as f:
+                    f.write("AssertionError:\t")
+                    f.write(str(triple))
+                    f.write("\t"+lines[i]["sentText"]+"\n")
+                    f.flush()
+                continue
             target["relation"].append(relation_id)
             target["head_start_index"].append(head_start_index)
             target["head_end_index"].append(head_end_index)

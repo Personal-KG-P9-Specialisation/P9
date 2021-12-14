@@ -68,13 +68,13 @@ def filter_trpl_extr_trpls(datafile):
         for line in f:
             data.append(json.loads(line))
     assert len(data) > 0
-    other_f = open("{}_other_v2.json", "w")
+    other_f = open("{}_other_v2.json".format(datafile), "w")
     with open("{}_new_v2.json".format(datafile),"w") as f:
         for ins in data:
             new_rels = list()
             other_rels = list()
             for rel in ins["relationMentions"]:
-                if not  (rel["em1Text"] in ins["sentText"] or rel["em2Text"] in ins["sentText"]):
+                if not  (rel["em1Text"] in ins["sentText"] and rel["em2Text"] in ins["sentText"]):
                     other_rels.append({"em1Text" : rel["em1Text"],"em2Text" : rel["em2Text"], "label":rel["label"]})
                 else:
                     new_rels.append({"em1Text" : rel["em1Text"],"em2Text" : rel["em2Text"], "label":rel["label"]})
