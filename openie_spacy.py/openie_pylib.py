@@ -4,6 +4,11 @@ import json
 from stanfordcorenlp import StanfordCoreNLP
 import re
 
+def open_corpus ():
+    with open('corpus/example-chat.txt', encoding='utf8') as r:
+        corpus = r.read().replace('\n', ' ').replace('\r', '')
+    return corpus
+
 def list_to_string(s):
     str1 = "" 
     for ele in s: 
@@ -19,11 +24,6 @@ def triple_list_to_string(s):
             str1 += (result + " ")
             # entity_linking(str1)
     return str1 
-
-def open_corpus ():
-    with open('corpus/example-chat.txt', encoding='utf8') as r:
-        corpus = r.read().replace('\n', ' ').replace('\r', '')
-    return corpus
 
 # Prints corpus of triples.
 def print_triple_corpus (triple_corpus):
@@ -56,22 +56,27 @@ def openie_extract_triples (text):
 # Extracts chains of coreferences.
 def coreference_resolution (text):
     # RUN THIS FIRST FROM NLP FOLDER: java -mx4g -cp "*" edu.stanford.nlp.pipeline.StanfordCoreNLPServer -port 9001 -timeout 15000 
-    nlp = StanfordCoreNLP('http://localhost', port=9001) # Should update code to only use this not openie lib.
-    # sentence = 'Barack Obama was born in Hawaii.  He is the president. Obama was elected in 2008.'
+    nlp = StanfordCoreNLP('http://localhost', port=9001)
     coref_chains = nlp.coref(text)
     nlp.close()
     return coref_chains
 
-# Extracts chains of coreferences.
-def triple_integration (text):
-    li = text.replace("!", " ").replace("?", " ").replace(",", " ").replace(".", " ")
+# Annotates text to have same reference for objects in same coreference chain.
+def coreference_integration (text):
+    text_without_symbols = text.replace("!", " ").replace("?", " ").replace(",", " ").replace(".", " ")
     coref_chains = coreference_resolution(text)
     for chain in coref_chains:
         for ref in chain:
-            li = li.replace(ref[3], chain[0][3])
+            text_without_symbols = text_without_symbols.replace(ref[3], chain[0][3])
+    return text_without_symbols
+
+# Combines coreference resolution with triple extraction.
+def triple_integration (text):
+    # Annotates text with coreferences.
+    annotated_text = coreference_integration(text)
     
     # Extracts triples on the text annotated with coreference chains.
-    triples = openie_extract_triples(li)
+    triples = openie_extract_triples(annotated_text)
 
     return triples
 
@@ -94,9 +99,9 @@ def entity_linking_single (text):
     all_linked_entities = doc._.linkedEntities
     for entity in all_linked_entities:
         if entity != None:
-            strins = entity.get_label() + " Q" + str(entity.get_id())
-            print(strins)
-            return strins
+            new_name = entity.get_label() + " Q" + str(entity.get_id())
+            print(new_name)
+            return new_name
     return None
 
 # Iterates over entities in triple corpus replacing them with wikidata entities.
@@ -120,17 +125,13 @@ def el_no_duplicates (triple_corpus):
 
 # Combined method containing coreference resolution, triple extraction and entity linking with graph generation.
 def combined (text):
-    li = text.replace("!", " ").replace("?", " ").replace(",", " ").replace(".", " ")
-    coref_chains = coreference_resolution(text)
-    for chain in coref_chains:
-        for ref in chain:
-            li = li.replace(ref[3], chain[0][3])
+    annotated_text = coreference_integration(text)
 
     properties = {
         'openie.affinity_probability_cap': 2 / 3,
     }
     with StanfordOpenIE(properties=properties) as client:
-        triple_corpus = client.annotate(li)
+        triple_corpus = client.annotate(annotated_text)
         triple_corpus = entity_linking_iterative(triple_corpus)       
 
         graph_image = 'graph.png'
