@@ -124,8 +124,10 @@ def el_no_duplicates (triple_corpus):
         entity_linking(l)
 
 # Combined method containing coreference resolution, triple extraction and entity linking with graph generation.
-def combined (text):
-    annotated_text = coreference_integration(text)
+def combined (text, optional_coreference):
+    annotated_text = text
+    if(optional_coreference == True):
+        annotated_text = coreference_integration(text)
 
     properties = {
         'openie.affinity_probability_cap': 2 / 3,
@@ -140,25 +142,9 @@ def combined (text):
         print('Graph generated: %s.' % graph_image)
 
 
-
 if __name__ == '__main__':
-    #triple_corpus = extract_triples()
-    # print_triple_corpus(triple_corpus)
     data = open_corpus()
-    #triple_integration(data)
-    #text = triple_list_to_string(corp)
-    #print (corp)
-    #corp = open_corpus()
-    combined(data)
-    #coreference_resolution(corp)
-    # print(text)
-    #triples = triple_integration(data)
-    #for triple in triples:
-        #sbj = entity_linking_single(triple['subject'])
-        #if sbj != None:
-            #triple['subject'] = sbj
-        #obj = entity_linking_single(triple['object'])
-        #if obj != None:
-            #triple['subject'] = obj
+    optional_coreference = False
+    
+    combined(data, optional_coreference)
 
-    #print(triples)
