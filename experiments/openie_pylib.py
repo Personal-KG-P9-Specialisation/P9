@@ -139,6 +139,7 @@ def combined (text, optional_coreference):
 
         graph_image = 'graph.png'
         temp = triple_list_to_string(triple_corpus)
+        print(temp)
         # Find a better tool for generating graphs
         client.generate_graphviz_graph(temp, graph_image)
         print('Graph generated: %s.' % graph_image)
@@ -146,7 +147,7 @@ def combined (text, optional_coreference):
 
 if __name__ == '__main__':
     data = open_corpus()
-    optional_coreference = False
+    optional_coreference = True
     
     combined(data, optional_coreference)
 
