@@ -23,12 +23,13 @@ def triple_list_to_string(s):
         for result in test:
             str1 += (result + " ")
             # entity_linking(str1)
+        str1 += ". "
     return str1 
 
 # Prints corpus of triples.
 def print_triple_corpus (triple_corpus):
-    print('Found %s triples in the corpus.' % len(triples_corpus))
-    for triple in triples_corpus[:3]:
+    print('Found %s triples in the corpus.' % len(triple_corpus))
+    for triple in triple_corpus:
         print('|-', triple)
     print('[...]')
 
@@ -134,10 +135,11 @@ def combined (text, optional_coreference):
     }
     with StanfordOpenIE(properties=properties) as client:
         triple_corpus = client.annotate(annotated_text)
-        triple_corpus = entity_linking_iterative(triple_corpus)       
+        triple_corpus = entity_linking_iterative(triple_corpus)     
 
         graph_image = 'graph.png'
         temp = triple_list_to_string(triple_corpus)
+        # Find a better tool for generating graphs
         client.generate_graphviz_graph(temp, graph_image)
         print('Graph generated: %s.' % graph_image)
 
