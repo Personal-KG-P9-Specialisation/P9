@@ -116,13 +116,14 @@ def entity_linking_iterative (triple_corpus):
             triple['object'] = obj
     return triple_corpus
 
-# Quick fix to remove duplicate entities before entity linking.
-def el_no_duplicates (triple_corpus):
-    text = triple_list_to_string(triple_corpus)
-    li = list(text.split(" "))
-    li = list(dict.fromkeys(li))
-    for l in li:
-        entity_linking(l)
+# Quick fix to remove duplicate relations.
+def remove_duplicates (text):
+    lst = text.split(" . ")
+    lst = list(dict.fromkeys(lst))
+    temp = ""
+    for element in lst:
+        temp += element + " . "
+    return temp
 
 # Combined method containing coreference resolution, triple extraction and entity linking with graph generation.
 def combined (text, optional_coreference):
@@ -139,7 +140,8 @@ def combined (text, optional_coreference):
 
         graph_image = 'graph.png'
         temp = triple_list_to_string(triple_corpus)
-        print(temp)
+        temp = remove_duplicates(temp)
+
         # Find a better tool for generating graphs
         client.generate_graphviz_graph(temp, graph_image)
         print('Graph generated: %s.' % graph_image)
