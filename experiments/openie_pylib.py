@@ -81,15 +81,25 @@ def triple_integration (text):
 
     return triples
 
-# Performs entity linking using the Spacy library.
-def entity_linking (text):
+# Performs entity linking using the Spacy library on regular text.
+def entity_linking (text, triple_corpus):
     nlp = spacy.load("en_core_web_md")
     nlp.add_pipe("entityLinker", last=True)
     doc = nlp(text)
 
     all_linked_entities = doc._.linkedEntities
-    for entity in all_linked_entities:
-        entity.pretty_print()
+
+    for triple in triple_corpus:
+        for entity in all_linked_entities:
+            temp = str(entity.get_span())
+            if triple['subject'] == temp:
+                new_name = entity.get_label() + " Q" + str(entity.get_id())
+                triple['subject'] = new_name
+            if triple['object'] == temp:
+                new_name = entity.get_label() + " Q" + str(entity.get_id())
+                triple['object'] = new_name
+
+    return triple_corpus
 
 # Performs entity linking using the Spacy library on one entity.
 def entity_linking_single (text):
@@ -126,7 +136,7 @@ def remove_duplicates (text):
     return temp
 
 # Combined method containing coreference resolution, triple extraction and entity linking with graph generation.
-def combined (text, optional_coreference):
+def combined_pipeline (text, optional_coreference):
     annotated_text = text
     if(optional_coreference == True):
         annotated_text = coreference_integration(text)
@@ -136,6 +146,7 @@ def combined (text, optional_coreference):
     }
     with StanfordOpenIE(properties=properties) as client:
         triple_corpus = client.annotate(annotated_text)
+        # Perform entity linking on entities in the extracted triples.
         triple_corpus = entity_linking_iterative(triple_corpus)     
 
         graph_image = 'graph.png'
@@ -146,10 +157,31 @@ def combined (text, optional_coreference):
         client.generate_graphviz_graph(temp, graph_image)
         print('Graph generated: %s.' % graph_image)
 
+# Perform triple extraction and entity linking on input text and then combine to preserve context.
+def combined_joint (text, optional_coreference):
+    annotated_text = text
+    if(optional_coreference == True):
+        annotated_text = coreference_integration(text)
+
+    properties = {
+        'openie.affinity_probability_cap': 2 / 3,
+    }
+    with StanfordOpenIE(properties=properties) as client:
+        triple_corpus = client.annotate(annotated_text)
+        # Perform entity linking on the input text.
+        triple_corpus = entity_linking(annotated_text, triple_corpus)
+
+        graph_image = 'graph.png'
+        temp = triple_list_to_string(triple_corpus)
+        temp = remove_duplicates(temp)
+
+        # Find a better tool for generating graphs
+        client.generate_graphviz_graph(temp, graph_image)
+        print('Graph generated: %s.' % graph_image)
 
 if __name__ == '__main__':
     data = open_corpus()
     optional_coreference = True
     
-    combined(data, optional_coreference)
+    combined_joint(data, optional_coreference)
 
