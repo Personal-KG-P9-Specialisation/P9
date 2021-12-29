@@ -38,7 +38,7 @@ class Data:
 
 
 def build_data(args):
-
+    print(args.generated_data_directory)
     file = args.generated_data_directory + args.dataset_name + "_" + args.model_name + "_data.pickle"
     if os.path.exists(file) and not args.refresh:
         data = load_data_setting(args)
