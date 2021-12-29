@@ -68,17 +68,20 @@ def create_json_data(file):
             elif(int(txt_spl[0]) == 1 and d is not None):
                 dialogues.append(d)
                 d = Dialogue(dialog_id)
-            msg = Message(txt_spl[1][:-1],int(txt_spl[0]))
+            if txt_spl[1][len(txt_spl[1])-1] == "\n":
+                msg = Message(txt_spl[1][:-1],int(txt_spl[0]))
+            else:
+                msg = Message(txt_spl[1],int(txt_spl[0]))
             if len(txt_spl) > 2:
-                msg.add_gt(txt_spl[2][:-1])
+                if(txt_spl[2][len(txt_spl[2])-1] == "\n"):
+                    msg.add_gt(txt_spl[2][:-1])
+                else:
+                    msg.add_gt(txt_spl[2])
             d.add_msg(msg)
         
     #print(json.dumps(dialogues,default=lambda a : getattr(a,'__dict__', str(a))))
     #json.dump(dialogues,open("sample.json","w"),default=lambda a : getattr(a,'__dict__', str(a)))
     return dialogues
-
-data = create_json_data("../data/ConvAI2/test_both_original_final.txt")
-#count_dialogues("../data/ConvAI2/test_both_original_final.txt")
 
 #967 dialogues in test set
 def random_sample(dials, N):
@@ -87,6 +90,9 @@ def random_sample(dials, N):
     sample_dials = [x for x in dials if x.id in rand_idx]
     json.dump(sample_dials,open("sample.json","w"),default=lambda a : getattr(a,'__dict__', str(a)))
 
-#random_sample(data,40)
+if __name__ == "__main__":
+    count_dialogues("../data/ConvAI2/test_both_original_final.txt")
+    data = create_json_data("../data/ConvAI2/test_both_original_final.txt")    
+    random_sample(data,40)
 #ids for 40 first
 #[298, 157, 864, 326, 300, 433, 74, 599, 664, 512, 705, 7, 37, 624, 261, 232, 866, 335, 941, 875, 748, 717, 468, 136, 474, 101, 841, 773, 965, 250, 775, 683, 199, 649, 370, 613, 884, 742, 359, 602]
