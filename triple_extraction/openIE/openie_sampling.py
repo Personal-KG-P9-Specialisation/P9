@@ -6,19 +6,7 @@ def annotate(client,text):
     for triple in client.annotate(text):
         t_list = list(triple.values())
         triple_list.append(t_list)
-    print(triple_list)
     return triple_list
-
-def annotate1(client,text):
-    print('Text: %s.' % text)
-    for triple in client.annotate(text):
-        t_string = "<"
-        t_list = list(triple.values())
-        for ele in t_list:
-            t_string += (" " + ele +",")
-        t_string = t_string[:-1]
-        t_string += " >,"
-        print(t_string)
 
 if __name__ == '__main__':
     f = open('sampling.json')
