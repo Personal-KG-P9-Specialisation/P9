@@ -1,8 +1,6 @@
-[
-    {
+[{
         "id": 7,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "my mom had me in mcdonald bathroom when she was 1",
                 "turn": 1,
                 "ground_truth": [
@@ -351,8 +349,7 @@
     },
     {
         "id": 37,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "hey there like to workout ?",
                 "turn": 1,
                 "ground_truth": [],
@@ -693,8 +690,7 @@
     },
     {
         "id": 74,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "i love animals ! how about you !",
                 "turn": 1,
                 "ground_truth": [],
@@ -1001,8 +997,7 @@
     },
     {
         "id": 101,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "hi ! how are you doing today ?",
                 "turn": 1,
                 "ground_truth": [],
@@ -1345,8 +1340,7 @@
     },
     {
         "id": 136,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "hello , how are you tonight ? are you watching the office ",
                 "turn": 1,
                 "ground_truth": [
@@ -1651,8 +1645,7 @@
     },
     {
         "id": 157,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "hey there how are you ? it was beautiful saturday my friend got married ",
                 "turn": 1,
                 "ground_truth": [
@@ -2003,8 +1996,7 @@
     },
     {
         "id": 199,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "hello how are you doing ?",
                 "turn": 1,
                 "ground_truth": [],
@@ -2309,8 +2301,7 @@
     },
     {
         "id": 232,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "do you have any pets ? i have a ca",
                 "turn": 1,
                 "ground_truth": [
@@ -2615,8 +2606,7 @@
     },
     {
         "id": 250,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "hello there how is your day going ?",
                 "turn": 1,
                 "ground_truth": [],
@@ -2951,8 +2941,7 @@
     },
     {
         "id": 261,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "how are you i play music for a living",
                 "turn": 1,
                 "ground_truth": [],
@@ -3295,8 +3284,7 @@
     },
     {
         "id": 298,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "hi there how are you doing tonight ?",
                 "turn": 1,
                 "ground_truth": [],
@@ -3641,8 +3629,7 @@
     },
     {
         "id": 300,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "good evening how are you doing tonight",
                 "turn": 1,
                 "ground_truth": [],
@@ -3985,8 +3972,7 @@
     },
     {
         "id": 326,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "hi , how are you , how is doing",
                 "turn": 1,
                 "ground_truth": [],
@@ -4333,8 +4319,7 @@
     },
     {
         "id": 335,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "hello , how are you today",
                 "turn": 1,
                 "ground_truth": [],
@@ -4637,8 +4622,7 @@
     },
     {
         "id": 359,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "hi there how are you tonight ?",
                 "turn": 1,
                 "ground_truth": [],
@@ -4973,8 +4957,7 @@
     },
     {
         "id": 370,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "hi how are you doing",
                 "turn": 1,
                 "ground_truth": [],
@@ -5313,8 +5296,7 @@
     },
     {
         "id": 433,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "hello , how are you tonight ?",
                 "turn": 1,
                 "ground_truth": [],
@@ -5669,8 +5651,7 @@
     },
     {
         "id": 468,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "hi ! what have you been doing today ?",
                 "turn": 1,
                 "ground_truth": [],
@@ -6009,8 +5990,7 @@
     },
     {
         "id": 474,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "good evening , hope you are well",
                 "turn": 1,
                 "ground_truth": [],
@@ -6317,8 +6297,7 @@
     },
     {
         "id": 512,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "hey like , how s it going",
                 "turn": 1,
                 "ground_truth": [],
@@ -6619,8 +6598,7 @@
     },
     {
         "id": 599,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "hi are you working today ? i am going to style some dog hair",
                 "turn": 1,
                 "ground_truth": [],
@@ -6961,8 +6939,7 @@
     },
     {
         "id": 602,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "hi there , i just became a dad to a golden retriever ! ",
                 "turn": 1,
                 "ground_truth": [
@@ -7313,8 +7290,7 @@
     },
     {
         "id": 613,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "hey ! how are you ? i am so excited that i just graduated from rn school .",
                 "turn": 1,
                 "ground_truth": [],
@@ -7665,8 +7641,7 @@
     },
     {
         "id": 624,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "how are you doing today ",
                 "turn": 1,
                 "ground_truth": [
@@ -7975,8 +7950,7 @@
     },
     {
         "id": 649,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "hi there how are you",
                 "turn": 1,
                 "ground_truth": [],
@@ -8331,8 +8305,7 @@
     },
     {
         "id": 664,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "hi there how are you don",
                 "turn": 1,
                 "ground_truth": [
@@ -8683,8 +8656,7 @@
     },
     {
         "id": 683,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "he ; ; o . how are you this day",
                 "turn": 1,
                 "ground_truth": [],
@@ -9029,8 +9001,7 @@
     },
     {
         "id": 705,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "hello , how is your night going ?",
                 "turn": 1,
                 "ground_truth": [],
@@ -9377,8 +9348,7 @@
     },
     {
         "id": 717,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "hello , how are you today ?",
                 "turn": 1,
                 "ground_truth": [],
@@ -9727,8 +9697,7 @@
     },
     {
         "id": 742,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "hi ! how are you ? do you have any hobbies ?",
                 "turn": 1,
                 "ground_truth": [],
@@ -10037,8 +10006,7 @@
     },
     {
         "id": 748,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "hi . how is it going ? my name is carson",
                 "turn": 1,
                 "ground_truth": [],
@@ -10381,8 +10349,7 @@
     },
     {
         "id": 773,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "hi ! how are you ? what are you doing right now ?",
                 "turn": 1,
                 "ground_truth": [],
@@ -10681,8 +10648,7 @@
     },
     {
         "id": 775,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "hello . what are you up to ?",
                 "turn": 1,
                 "ground_truth": [],
@@ -11027,8 +10993,7 @@
     },
     {
         "id": 841,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "hello i am sam how are you ?",
                 "turn": 1,
                 "ground_truth": [],
@@ -11365,8 +11330,7 @@
     },
     {
         "id": 864,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "hi ! what is your favorite movie ? mine is dark knigh",
                 "turn": 1,
                 "ground_truth": [
@@ -11717,8 +11681,7 @@
     },
     {
         "id": 866,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "i have a question for you . . . do you believe in magic ? ?",
                 "turn": 1,
                 "ground_truth": [],
@@ -12063,8 +12026,7 @@
     },
     {
         "id": 875,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "hey , how is it going out there ? people are nervous over here .",
                 "turn": 1,
                 "ground_truth": [],
@@ -12401,8 +12363,7 @@
     },
     {
         "id": 884,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "hello ! this should be fun as i write for a living !",
                 "turn": 1,
                 "ground_truth": [],
@@ -12707,8 +12668,7 @@
     },
     {
         "id": 941,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "good morning . how are you ?",
                 "turn": 1,
                 "ground_truth": [],
@@ -13005,8 +12965,7 @@
     },
     {
         "id": 965,
-        "messages": [
-            {
+        "messages": [{
                 "utterance": "hi there , just got home from my job at mcdonalds and ready to chat ",
                 "turn": 1,
                 "ground_truth": [
