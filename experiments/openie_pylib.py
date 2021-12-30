@@ -89,6 +89,7 @@ def entity_linking (text, triple_corpus):
 
     all_linked_entities = doc._.linkedEntities
 
+    # Replace entities in the extracted triples with linked entities.
     for triple in triple_corpus:
         for entity in all_linked_entities:
             temp = str(entity.get_span())
