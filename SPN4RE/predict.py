@@ -1,6 +1,4 @@
-import argparse, os, torch
-import random
-import numpy as np
+import argparse, os, torch,json,sys
 from models.setpred4RE import SetPred4RE
 from utils.data import build_data
 parser = argparse.ArgumentParser()
@@ -31,7 +29,7 @@ def remove_accents(text: str) -> str:
 
 
 data_arg = add_argument_group('Data')
-"""python3 -m main --max_epoch 10 --use_gpu False"""
+"""python3 -m predict --max_epoch 10 --use_gpu False"""
 data_arg.add_argument('--dataset_name', type=str, default="WebNLG")
 data_arg.add_argument('--train_file', type=str, default="./data/WebNLG/clean_WebNLG/train_new_new_v2.json")
 data_arg.add_argument('--valid_file', type=str, default="./data/WebNLG/clean_WebNLG/valid_new_new_v2.json")
@@ -106,13 +104,28 @@ def load_model(path_model, args):
     state_dict = torch.load(path_model)
     model.load_state_dict(state_dict["state_dict"])
     return model
+def predict_data(path, save_path):
+    tokenizer = BertTokenizer.from_pretrained(args.bert_directory, do_lower_case=False)
+    data = build_data(args)
+    model = load_model("/home/test/Github/code/SPN4RE/data/generated_data/model_param/nSetPred4RE_WebNLG_epoch_3_f1_0.3928.model",args)
+    
+    conv_data = json.load(open(path,"r"))
+    for d in conv_data:
+        for m in d['messages']:
+            triples = predict_triples(m[],model,tokenizer,data.relational_alphabet)
+            triples = [["I","have", "object"], ["I","have", "not"]]
+            m['extracted_triple_SPN4RE'] = triples
+    json.dump(conv_data,open(save_path,"w"))
 
-tokenizer = BertTokenizer.from_pretrained(args.bert_directory, do_lower_case=False)
-data = build_data(args)
-model = load_model("/home/test/Github/code/SPN4RE/data/generated_data/model_param/nSetPred4RE_WebNLG_epoch_3_f1_0.3928.model",args)
-#SetPred4RE(args, data.relational_alphabet.size())
+predict_data("../data/random_sample/sample_v2_results.json","data.json")
+
 #test
-utterance = "my mom had me in mcdonalds ."
-triples = predict_triples(utterance,model,tokenizer,data.relational_alphabet)
-for i in triples:
-    print(i,"\n")
+#tokenizer = BertTokenizer.from_pretrained(args.bert_directory, do_lower_case=False)
+#data = build_data(args)
+#model = load_model("/home/test/Github/code/SPN4RE/data/generated_data/model_param/nSetPred4RE_WebNLG_epoch_3_f1_0.3928.model",args)
+#SetPred4RE(args, data.relational_alphabet.size())
+
+#utterance = "my mom had me in mcdonalds ."
+#triples = predict_triples(utterance,model,tokenizer,data.relational_alphabet)
+#for i in triples:
+#    print(i,"\n")
