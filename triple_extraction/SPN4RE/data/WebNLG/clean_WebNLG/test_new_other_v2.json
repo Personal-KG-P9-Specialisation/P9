@@ -1,0 +1,91 @@
+{"sentText": "no . my uncle is the manager and took me home .", "relationMentions": [{"em1Text": "my uncle and", "em2Text": "me", "label": "other"}]}
+{"sentText": "he gave me a job at mcdonalds . i was considering college but i am good now .", "relationMentions": [{"em1Text": "i", "em2Text": "college good", "label": "want_do"}]}
+{"sentText": "green is my favorite too ! i collect teddy bears . you ?", "relationMentions": [{"em1Text": "i", "em2Text": "collect bears", "label": "have"}]}
+{"sentText": "they are , i will use my garden as a teaching environment too", "relationMentions": [{"em1Text": "i", "em2Text": "are garden", "label": "own"}]}
+{"sentText": "i can imagine . i thought about having children but i am not ready yet .", "relationMentions": [{"em1Text": "i", "em2Text": "children am", "label": "other"}]}
+{"sentText": "my 2 kiddos are in kindergarten , they want to graduate at mississippi university like me", "relationMentions": [{"em1Text": "in", "em2Text": "2 are in kindergarten they at", "label": "have"}]}
+{"sentText": "dad tending the farm and mom a strict teacher , anything artsy was always frowned upon !", "relationMentions": [{"em1Text": "dad and mom", "em2Text": "farm and teacher", "label": "has_profession"}]}
+{"sentText": "that is why i like getting up early so i can have more time for my crafts .", "relationMentions": [{"em1Text": "i", "em2Text": "can crafts", "label": "like_activity"}]}
+{"sentText": "wow ! and here i am . my mom is just a teacher in south carolina . xd", "relationMentions": [{"em1Text": "and mom", "em2Text": "and teacher", "label": "has_profession"}]}
+{"sentText": "i like cooking and spending time walking my dog . his name is charlie .", "relationMentions": [{"em1Text": "my dog", "em2Text": "is name charlie", "label": "other"}]}
+{"sentText": "i travel right now and to different countries", "relationMentions": [{"em1Text": "i", "em2Text": "travel countries", "label": "have"}]}
+{"sentText": "sorry to hear that . i used to drink a lot . that was a lonely time for me .", "relationMentions": [{"em1Text": "i", "em2Text": "to used drink", "label": "has_hobby"}]}
+{"sentText": "no , not really . are you ? if i leave some food , my dog charlie will eat it .", "relationMentions": [{"em1Text": "my dog", "em2Text": "i charlie", "label": "other"}]}
+{"sentText": "oh , i have 2 large dogs , do you have dogs", "relationMentions": [{"em1Text": "i", "em2Text": "2 dogs", "label": "have_pet"}]}
+{"sentText": "i started as a red cross volunteer but i prefer the color green personally", "relationMentions": [{"em1Text": "i", "em2Text": "volunteer green", "label": "favorite_color"}]}
+{"sentText": "i love walking my dog and two cats as well", "relationMentions": [{"em1Text": "i", "em2Text": "dog and cats", "label": "have_pet"}]}
+{"sentText": "i go skating on sundays . hoping new york has good parks , i am moving there .", "relationMentions": [{"em1Text": "i", "em2Text": "new york moving", "label": "want"}]}
+{"sentText": "ah . have any pets ? i have 3 . my dogs are my babies .", "relationMentions": [{"em1Text": "i", "em2Text": "3 dogs", "label": "have_pet"}]}
+{"sentText": "so sorry ! yes , my old soccer coach wife , i am her secretary", "relationMentions": [{"em1Text": "i", "em2Text": "soccer i am her", "label": "other"}]}
+{"sentText": "i am lucy , college is fun coz the soccer team i was with", "relationMentions": [{"em1Text": "i", "em2Text": "i college the soccer team was", "label": "other"}]}
+{"sentText": "i love it the best ! even my dog charlie loves it !", "relationMentions": [{"em1Text": "my dog", "em2Text": "i charlie", "label": "other"}]}
+{"sentText": "hi there . i do not any children but i do have a dog named charlie .", "relationMentions": [{"em1Text": "dog", "em2Text": "i named charlie", "label": "other"}]}
+{"sentText": "i am just watching a movie and eating muffins .", "relationMentions": [{"em1Text": "i", "em2Text": "watching movie", "label": "like_activity"}]}
+{"sentText": "are you a fish ? i like fish . i am allergic to most other animals , like cats .", "relationMentions": [{"em1Text": "i", "em2Text": "allergic to animals", "label": "have"}]}
+{"sentText": "yes we do , every night . we get up early in the morning too , but i enjoy it .", "relationMentions": [{"em1Text": "i", "em2Text": "early morning", "label": "like_general"}]}
+{"sentText": "i enjoy watching soccer a lot . i played some sports in high school .", "relationMentions": [{"em1Text": "i", "em2Text": "played sports", "label": "other"}]}
+{"sentText": "it is okay ! i live in the ocean and my friends are sea creatures !", "relationMentions": [{"em1Text": "i", "em2Text": "the sea", "label": "live_in_general"}]}
+{"sentText": "that is always hard . i love pets . besides my 2 dogs there are 3 cats", "relationMentions": [{"em1Text": "i", "em2Text": "dogs there cats", "label": "have"}]}
+{"sentText": "very cool . do you have any pets ? i have 3 2 cats and 1 dog .", "relationMentions": [{"em1Text": "i", "em2Text": "3 cats and dog", "label": "have_pet"}]}
+{"sentText": "you enough to daydream about living in the ocean with long , wavy hair and a flexible tail .", "relationMentions": [{"em1Text": "in", "em2Text": "a long wavy hair and tail", "label": "physical_attribute"}]}
+{"sentText": "oh , wow . both of my parents are dead .", "relationMentions": [{"em1Text": "both my", "em2Text": "dead", "label": "other"}]}
+{"sentText": "california , i grew up here but i am moving to nyc next year .", "relationMentions": [{"em1Text": "i", "em2Text": "moving to next year", "label": "want"}]}
+{"sentText": "i am from california , but moving to new york for a job next year", "relationMentions": [{"em1Text": "i", "em2Text": "moving to new york next year", "label": "want"}]}
+{"sentText": "neither do i . instead i paint in my spare time . often times it is a city landscape", "relationMentions": [{"em1Text": "i", "em2Text": "spare city", "label": "live_in_general"}]}
+{"sentText": "sorry . i have a dog and a few cats", "relationMentions": [{"em1Text": "i", "em2Text": "dog and cats", "label": "have_pet"}]}
+{"sentText": "english is my first language but my friend who speaks spanish also likes classical", "relationMentions": [{"em1Text": "is", "em2Text": "language speaks", "label": "has_ability"}]}
+{"sentText": "my fav is blue an my truck i drive is blue", "relationMentions": [{"em1Text": "i", "em2Text": "truck drive", "label": "has_profession"}]}
+{"sentText": "its weird i know . do you like frisbee i play it with my dog", "relationMentions": [{"em1Text": "i", "em2Text": "frisbee play", "label": "like_activity"}]}
+{"sentText": "i am great ! just walked my dog , charlie . how about you ?", "relationMentions": [{"em1Text": "my dog", "em2Text": "i am charlie", "label": "other"}]}
+{"sentText": "my family and i are from australia . where are you from ?", "relationMentions": [{"em1Text": "my are", "em2Text": "australia", "label": "live_in_citystatecountry"}]}
+{"sentText": "my wife divorced me but the kids like me better because i build things", "relationMentions": [{"em1Text": "i", "em2Text": "my build things", "label": "has_ability"}]}
+{"sentText": "yeah , i do not really like to do anything but sit down and watch tv", "relationMentions": [{"em1Text": "i", "em2Text": "and tv", "label": "like_movie"}]}
+{"sentText": "he thinks i should get out more but my couch , tv and ice cream are my friends", "relationMentions": [{"em1Text": "i", "em2Text": "more tv and", "label": "like_movie"}]}
+{"sentText": "sounds fun but i prefer to stay at home and watch tv with the hubby", "relationMentions": [{"em1Text": "i", "em2Text": "and tv", "label": "like_movie"}]}
+{"sentText": "i am retired just like my father is", "relationMentions": [{"em1Text": "my father", "em2Text": "retired is", "label": "job_status"}]}
+{"sentText": "wow ! i am leaving virginia to move to ny next year . i am from california . you ?", "relationMentions": [{"em1Text": "i", "em2Text": "leaving to next year", "label": "want"}]}
+{"sentText": "i also couples cat and one dog . they are very friendly", "relationMentions": [{"em1Text": "i", "em2Text": "cat and dog", "label": "have_pet"}]}
+{"sentText": "no pictures of my parents both of them and relieve nearby in the mountains", "relationMentions": [{"em1Text": "in", "em2Text": "nearby mountains", "label": "live_in_general"}]}
+{"sentText": "i don t really know how to swim because of it but my cats and dogs", "relationMentions": [{"em1Text": "i", "em2Text": "to cats and dogs", "label": "have"}]}
+{"sentText": "love nyc ! party all the time , my dad drove a semi , i helped .", "relationMentions": [{"em1Text": "the my", "em2Text": "drove", "label": "has_profession"}]}
+{"sentText": "do you have pets ? i have 2 dogs and a few cats", "relationMentions": [{"em1Text": "i", "em2Text": "dogs and cats", "label": "have"}]}
+{"sentText": "that is cool ! i like to explore the ocean , i live in an underwater condo", "relationMentions": [{"em1Text": "i", "em2Text": "the underwater", "label": "live_in_general"}]}
+{"sentText": "i have a dog also and two cats they get along good though .", "relationMentions": [{"em1Text": "i", "em2Text": "dog and cats", "label": "have_pet"}]}
+{"sentText": "it is rock . it gets me pumped up to go hiking with my dad who just retired .", "relationMentions": [{"em1Text": "my", "em2Text": "is retired", "label": "job_status"}]}
+{"sentText": "stay at home with super loving husband and relax in front of the tv", "relationMentions": [{"em1Text": "in", "em2Text": "and tv", "label": "like_movie"}]}
+{"sentText": "fish i ice them usually", "relationMentions": [{"em1Text": "i", "em2Text": "fish ice", "label": "has_hobby"}]}
+{"sentText": "i am just a great cook so eating too much makes me not happy with my weight", "relationMentions": [{"em1Text": "i", "em2Text": "too happy", "label": "other"}]}
+{"sentText": "i have a wild imagination . sea creatures are my friends and i explore with them .", "relationMentions": [{"em1Text": "i", "em2Text": "sea them", "label": "live_in_general"}]}
+{"sentText": "stock broker . i love to cook especially parmigiana , mostly eggplant .", "relationMentions": [{"em1Text": "i", "em2Text": "parmigiana eggplant", "label": "favorite_food"}]}
+{"sentText": "no . parents moved to australia and live with my sister and brother .", "relationMentions": [{"em1Text": "parents my", "em2Text": "australia", "label": "live_in_citystatecountry"}]}
+{"sentText": "my dad farms and my mother a teacher .", "relationMentions": [{"em1Text": "dad and", "em2Text": "farms and teacher", "label": "has_profession"}]}
+{"sentText": "my mom owns a restaurant and i work there but we do not make pizza", "relationMentions": [{"em1Text": "my there", "em2Text": "restaurant", "label": "own"}]}
+{"sentText": "i comb my facial hairs and ride my horse babies to relieve stress .", "relationMentions": [{"em1Text": "i", "em2Text": "ride horse", "label": "like_activity"}]}
+{"sentText": "i had to exit the army because i am now colorblind .", "relationMentions": [{"em1Text": "i", "em2Text": "to the army", "label": "other"}]}
+{"sentText": "that is why i am a body builder . i have a blog about rabbits i have rescued .", "relationMentions": [{"em1Text": "i", "em2Text": "blog about rabbits rescued", "label": "has_hobby"}]}
+{"sentText": "my cats are named sam and max . my dog is named sue", "relationMentions": [{"em1Text": "is", "em2Text": "cats and dog", "label": "have_pet"}]}
+{"sentText": "whenever you come here , i can teach you to catch fish thru the ice", "relationMentions": [{"em1Text": "i", "em2Text": "fish ice", "label": "has_hobby"}]}
+{"sentText": "my little sister does as well . i have a blog on rescue rabbits .", "relationMentions": [{"em1Text": "i", "em2Text": "blog rescue rabbits", "label": "has_hobby"}]}
+{"sentText": "oh cool what did you find out i know how to fish is being nice", "relationMentions": [{"em1Text": "i", "em2Text": "fish nice", "label": "has_hobby"}]}
+{"sentText": "well , i am still young enough to not worry about the long term affects of meds .", "relationMentions": [{"em1Text": "i", "em2Text": "young about", "label": "has_age"}]}
+{"sentText": "hello , i love being at home where i can watch tv , which i love .", "relationMentions": [{"em1Text": "i", "em2Text": "love can tv", "label": "like_movie"}]}
+{"sentText": "i bought my dog charlie from someone in puerto rico", "relationMentions": [{"em1Text": "my dog", "em2Text": "i charlie", "label": "other"}]}
+{"sentText": "i am single too . i graduated college a year ago . i played soccer there .", "relationMentions": [{"em1Text": "i", "em2Text": "i am college soccer there", "label": "other"}]}
+{"sentText": "my aunt and uncle raised and they like my parents wanna see me go far", "relationMentions": [{"em1Text": "my aunt and uncle", "em2Text": "raised me", "label": "other"}]}
+{"sentText": "oh . i live in a small pennsylvania town . i am making crafts", "relationMentions": [{"em1Text": "i", "em2Text": "small town", "label": "live_in_general"}]}
+{"sentText": "i bet . i get up early every morning to watch my neighbors walk their dogs", "relationMentions": [{"em1Text": "i", "em2Text": "early morning", "label": "like_general"}]}
+{"sentText": "i enjoy doing exercise videos with my cats !", "relationMentions": [{"em1Text": "i", "em2Text": "doing cats", "label": "have_pet"}]}
+{"sentText": "spending time with my aunt and uncle , they raised me so i owe them", "relationMentions": [{"em1Text": "my aunt and uncle", "em2Text": "me raised", "label": "other"}]}
+{"sentText": "my dad was a farmer and my mother works as a teacher .", "relationMentions": [{"em1Text": "dad and", "em2Text": "farmer and teacher", "label": "has_profession"}]}
+{"sentText": "i traveled there with my dad when he drove his truck .", "relationMentions": [{"em1Text": "there my", "em2Text": "drove truck", "label": "has_profession"}]}
+{"sentText": "try to have pets , i have a dog and 2 cats it gives me energy", "relationMentions": [{"em1Text": "i", "em2Text": "dog and cats", "label": "have_pet"}]}
+{"sentText": "charlie is the name of my dog , mom and dad is in australia", "relationMentions": [{"em1Text": "my dog", "em2Text": "charlie is name", "label": "other"}]}
+{"sentText": "i m actually late morning and i parents are teachers and firefighters", "relationMentions": [{"em1Text": "m late", "em2Text": "firefighters", "label": "has_profession"}]}
+{"sentText": "oh that sounds like hard work . can i bring all 3 of my dogs to the farm ?", "relationMentions": [{"em1Text": "i", "em2Text": "3 dogs", "label": "have_pet"}]}
+{"sentText": "i spend some time playing poker without drinking . five years ago is when i stopped drinking .", "relationMentions": [{"em1Text": "i", "em2Text": "spend drinking", "label": "has_hobby"}]}
+{"sentText": "tell me something unique about you . my toes are webbed and i am short 5 feet .", "relationMentions": [{"em1Text": "i", "em2Text": "toes webbed", "label": "physical_attribute"}]}
+{"sentText": "great spending time with my dog charlie he is a hoot", "relationMentions": [{"em1Text": "my dog", "em2Text": "charlie is", "label": "other"}]}
+{"sentText": "hi do you like animals ? i have a dog and 2 cats", "relationMentions": [{"em1Text": "i", "em2Text": "dog and cats", "label": "have_pet"}]}
+{"sentText": "hi , i have a cat , dog , bird and fish . no children . no soda just water .", "relationMentions": [{"em1Text": "i", "em2Text": "dog no children water", "label": "other"}]}
+{"sentText": "my aunt uncle were great , they raised me and gave me a happy home .", "relationMentions": [{"em1Text": "my aunt uncle and", "em2Text": "raised me", "label": "other"}]}
+{"sentText": "yes ! i should , but i spend most of my time hanging out with friends", "relationMentions": [{"em1Text": "i", "em2Text": "spend time with", "label": "like_activity"}]}
