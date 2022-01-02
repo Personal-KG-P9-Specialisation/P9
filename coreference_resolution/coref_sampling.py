@@ -11,18 +11,21 @@ def convert_chains (coref_chains):
     return new_coref_chains
 
 if __name__ == '__main__':
-    f = open('../data/random_sample/sample.json')
+    f = open('../data/random_sample/sample_v2_results.json')
     data = json.load(f)
     f.close()
 
     # RUN THIS FIRST FROM NLP FOLDER: java -mx4g -cp "*" edu.stanford.nlp.pipeline.StanfordCoreNLPServer -port 9001 -timeout 15000 
     nlp = StanfordCoreNLP('http://localhost', port=9001)
+    num = 0
 
     for i in data:
         messages = ""
         for j in i["messages"]:
-            messages += j["utterance"]
-            messages += ". "
+            if (num % 2) == 0:
+                messages += j["utterance"]
+                messages += ". "
+            num += 1
         coref_chains = nlp.coref(messages)
         coref_chains = convert_chains(coref_chains)
 
@@ -30,6 +33,6 @@ if __name__ == '__main__':
 
     nlp.close()
 
-    f = open("../data/random_sample/sample_coref.json", "w")
+    f = open("../data/random_sample/sample_v2_results.json", "w")
     json.dump(data, f)
     f.close()

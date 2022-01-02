@@ -247,9 +247,9 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["him", "he"],
-        ["my", "me", "my", "me", "i", "me", "i", "i", "i", "i", "i", "i", "i", "me", "my", "me", "i", "i", "me", "i", "i", "me", "i", "i"],
-        ["my mom", "she", "you", "you", "you", "you", "you", "i", "you"]
+        ["my mom", "she"],
+        ["my", "me", "my", "me", "me", "i", "i", "you", "i", "i", "i", "you", "me", "my", "me", "i", "i", "me", "i", "i", "you", "me"],
+        ["my uncle", "he"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -498,8 +498,8 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["i", "you", "i", "you", "you", "i", "i", "i", "i", "my", "i", "you", "i", "you", "myself", "my", "i", "i", "i"],
-        ["they", "they", "they", "they", "their"]
+        ["they", "they"],
+        ["i", "i", "i", "my", "i"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -726,7 +726,7 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["i", "you", "me", "you", "i", "i", "your", "i", "my", "i", "i", "i", "i", "my", "you", "you", "my", "i", "my", "i", "my", "you"]
+        ["i", "you", "i", "i", "i", "i", "i", "you", "my", "i", "my"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -989,7 +989,7 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["you", "i", "you", "i", "you", "i", "you", "i", "i", "i", "my", "your", "i", "my", "i", "i", "you", "i", "i", "i", "my", "i", "my", "you", "i", "my"]
+        ["you", "you", "i", "my", "i", "i", "i", "you"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -1230,9 +1230,7 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["my husband", "its", "it", "its"],
-        ["nights", "nights"],
-        ["you", "you", "i", "i", "i", "i", "i", "i", "i", "my", "i", "i", "my", "i", "my", "my", "i", "i", "i", "i", "me", "i", "my"]
+        ["you", "you", "i", "i", "i", "i", "i", "i", "my", "i", "i", "i"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -1509,10 +1507,8 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["my", "i", "i", "my", "i", "i", "i", "i", "i", "my", "i", "my", "i", "i", "you", "i", "i", "i", "you", "me", "you", "i", "i", "you", "me", "i", "my", "you", "i", "my", "me", "i", "you", "i", "you"],
-        ["that", "that"],
-        ["my family", "my family"],
-        ["bands", "them"]
+        ["my", "i", "i", "i", "my", "i", "me"],
+        ["you", "you", "you", "you", "you", "you"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -1729,8 +1725,8 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["my best friend", "he", "his"],
-        ["you", "i", "you", "i", "i", "you", "i", "my", "you", "i", "i", "you", "i", "your", "mine", "i", "you", "i", "i", "you", "you", "i", "i", "my"]
+        ["my best friend", "he"],
+        ["you", "i", "i", "you", "i", "your", "mine", "you", "i", "i", "i", "my"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -1966,10 +1962,8 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["you", "i", "i", "my", "your", "my", "i", "i", "i", "you", "i", "my", "i", "your", "mine", "i", "i", "me", "i", "i", "i", "you", "i", "me"],
-        ["that", "it", "that", "it"],
-        ["a cat", "my cat"],
-        ["arizona", "arizona"]
+        ["you", "i", "your", "my", "i", "you", "i", "i", "me", "you"],
+        ["a cat", "my cat"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -2222,10 +2216,10 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["my", "i", "my", "i", "i", "my", "i"],
-        ["your", "you", "your", "you", "you", "you", "you", "you", "your", "you", "you", "i", "i", "you", "i", "i"],
-        ["a motorcycle", "that"],
-        ["your day", "your day", "my day", "the day"]
+        ["your", "you", "you", "you", "your"],
+        ["your day", "my day"],
+        ["my", "i", "i", "i", "i", "i"],
+        ["a motorcycle", "that"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -2477,9 +2471,7 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["you", "i", "i", "i", "i", "i", "i", "i", "your", "i", "my", "i", "my", "my", "you", "i", "you", "i", "i", "i", "i", "i", "i"],
-        ["the beach", "the beach"],
-        ["my dad", "my dad"]
+        ["you", "i", "i", "i", "your", "i", "my", "my", "you", "you", "i", "i"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -2759,8 +2751,8 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["it", "that"],
-        ["you", "you", "i", "i", "you", "i", "i", "me", "i", "you", "i", "i", "you", "you", "i"]
+        ["ultimate frisbee", "it"],
+        ["you", "i", "i", "me", "i", "you", "i"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -3025,10 +3017,8 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["a vegan mom", "its"],
-        ["halloween", "halloween"],
-        ["you", "i", "you", "i", "you", "i", "i", "i", "you", "you", "i", "i", "my", "i", "i", "i", "you", "you", "i", "my", "i", "i", "i", "i"],
-        ["it", "it"]
+        ["a vegan mom", "its", "it", "it"],
+        ["you", "i", "you", "i", "i", "i", "i", "i", "you", "i", "my", "i"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -3287,8 +3277,7 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["your daughter", "my daughter", "her"],
-        ["you", "you", "i", "you", "i", "your", "i", "i", "you", "i", "i", "i", "i", "i", "i", "i", "you", "you", "i", "you", "i", "i", "i", "your", "my", "i", "i"]
+        ["you", "i", "your", "you", "i", "i", "you", "you", "i", "your", "i"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -3504,7 +3493,7 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["you", "i", "my", "you", "i", "my", "you", "my", "i", "you", "i", "you", "i", "i", "i", "i", "i", "you", "i", "you", "i", "my"]
+        ["you", "i", "my", "you", "i", "i", "i", "i", "i", "i", "my"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -3746,9 +3735,7 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["me", "my", "my", "i", "i", "i", "i", "i", "i", "me", "my", "i", "i", "i", "i"],
-        ["the wind", "it"],
-        ["you", "you", "you", "you", "you"]
+        ["me", "my", "i", "i", "i", "you", "i", "you"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -3991,10 +3978,9 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["we", "we"],
-        ["that", "that"],
-        ["they", "their", "they", "they"],
-        ["you", "you", "i", "i", "me", "my", "you", "i", "my", "i", "my", "you", "i", "i", "you", "i"]
+        ["you", "i", "you"],
+        ["i", "i"],
+        ["they", "their", "they"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -4218,10 +4204,8 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["t", "it"],
-        ["you", "i", "you", "you", "you", "my", "yours", "i", "i", "i", "my", "my", "i", "i", "my", "i", "my", "i", "you", "you", "your", "mine", "my"],
-        ["the mountains", "the mountains"],
-        ["my parents", "them"]
+        ["you", "you", "yours", "you", "your"],
+        ["my", "i", "my", "i", "i", "i", "mine"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -4499,9 +4483,8 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["my daughter", "my daughter"],
+        ["you", "i", "me", "my", "you", "you", "i", "my", "you", "i", "i", "i", "my"],
         ["it", "it"],
-        ["you", "i", "my", "i", "i", "you", "me", "my", "i", "you", "you", "i", "my", "you", "i", "i", "my", "i", "you", "i", "i", "you", "i", "i", "i", "my", "i", "i"],
         ["today", "today"]
     ],
     "coreference_resolution_criteria": [0, 0]
@@ -4729,8 +4712,8 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["you", "i", "i", "i", "i", "i", "you", "i", "i", "i", "me", "you", "i", "i", "i", "i", "you"],
-        ["that", "that"]
+        ["you", "you", "i", "you"],
+        ["i", "i", "i", "i"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -4933,8 +4916,8 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["my dad", "my dad"],
-        ["you", "i", "you", "i", "my", "my", "i", "you", "i", "i", "i", "i", "you", "i", "i", "my"]
+        ["i", "i", "my", "my", "i", "i", "i", "my"],
+        ["my dad", "my dad"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -5211,11 +5194,9 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["he", "he", "he", "him", "he", "him"],
-        ["you", "i", "i", "my", "i", "my", "i", "i", "i", "i", "i", "mine", "i", "i", "you", "my", "i", "my", "i", "i", "my"],
-        ["today", "today"],
-        ["the kiddo", "she"],
-        ["the gym", "the gym"]
+        ["my third husband", "he", "him", "him"],
+        ["you", "i", "my", "i", "i", "i", "i", "you", "i", "my"],
+        ["rabbits", "them"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -5506,10 +5487,9 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["they", "they"],
-        ["all over the kitchen", "all over the kitchen"],
-        ["i", "you", "i", "i", "i", "i", "my", "my", "i", "you", "i", "i", "my", "me", "you", "i", "i", "i", "i", "i", "i", "i", "i", "your", "my"],
-        ["2 boys here", "the boys"]
+        ["i", "i", "i", "i", "my", "my", "i", "i", "my", "me", "i", "i", "i", "i"],
+        ["a golden retriever", "my retriever now"],
+        ["you", "your"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -5796,9 +5776,8 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["you", "i", "i", "you", "i", "i", "my", "my", "you", "you", "i", "my", "i", "my", "i", "i", "my", "i", "i", "you", "i", "you", "i", "my", "you", "i", "i", "you", "my"],
         ["a sister", "my sister"],
-        ["shopping", "it"]
+        ["you", "i", "i", "i", "i", "you", "you", "i", "my", "my", "i", "i", "you", "i", "my", "i", "i", "you"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -6044,8 +6023,7 @@
     }],
     "coreference_chain": [
         ["its", "its"],
-        ["this", "it", "this"],
-        ["you", "i", "i", "you", "i", "you", "i", "my", "you", "i", "i", "my", "my", "your", "me", "my", "you", "me", "i", "i", "my parents", "my", "my", "i", "you", "i", "i", "you", "you", "i", "you"]
+        ["you", "you", "i", "you", "i", "i", "me", "my", "you", "me", "my", "i", "you", "you", "you", "i"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -6347,12 +6325,9 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["you", "i", "i", "you", "i", "me", "i", "i", "i", "i", "i", "i", "i", "i", "you", "i", "i", "i", "i", "my", "i", "i", "i", "my"],
-        ["a new truck", "it"],
-        ["kids", "the kids"],
+        ["it", "it"],
         ["second life", "it"],
-        ["second life", "it", "it", "it"],
-        ["a big family", "a big family"]
+        ["you", "i", "me", "i", "i", "you"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -6606,11 +6581,7 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["it", "it"],
-        ["florida", "florida"],
-        ["you", "you", "you", "you", "i", "i", "i", "i", "i", "you", "i", "i", "i"],
-        ["my", "i", "i", "my", "i", "my", "i", "i", "my", "my", "my"],
-        ["my mom", "my mom"]
+        ["you", "i", "i", "i", "my", "yours", "my", "i", "i", "i", "i", "i"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -6875,9 +6846,7 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["me", "i", "i", "my", "i", "i", "i", "i", "i", "i", "i", "i", "i", "i", "i", "i", "i", "i", "i", "i", "i", "i", "i"],
-        ["dogs", "they"],
-        ["you", "you", "you", "you", "you", "you", "your", "you", "you"]
+        ["my", "i", "i", "i", "i", "i", "i", "i", "i", "i", "i", "i"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -7137,9 +7106,9 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["he", "he", "he"],
-        ["your", "you", "i", "my", "you", "i", "my", "you", "i", "my", "i", "i", "my", "i", "my", "i"],
-        ["yours", "you"]
+        ["i", "my", "my", "i", "my", "i", "my", "you"],
+        ["he", "he"],
+        ["your", "you", "you"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -7393,11 +7362,9 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
+        ["arkansas", "they"],
         ["the weather", "it"],
-        ["today", "today"],
-        ["i", "i", "my", "i"],
-        ["you", "you", "you", "i", "i", "my", "i", "mine", "my", "i", "i", "my", "i", "i", "your", "my", "your"],
-        ["my new ford pickup truck", "your new truck"]
+        ["you", "i", "you", "i", "i", "mine", "i", "i", "i", "my"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -7647,11 +7614,8 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["you", "you", "i", "i", "you", "i", "i", "my", "i", "my", "i", "my", "i", "i", "i", "i", "i", "i", "i", "you", "i", "i", "i", "my", "you", "you", "your", "my", "i"],
-        ["my husband", "my husband", "my husband", "his", "and your husband", "my husband"],
-        ["all day", "all day"],
         ["quilts", "them"],
-        ["love", "it"]
+        ["you", "you", "you", "i", "my", "i", "i", "i", "i", "i", "i", "you", "you", "your"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -7883,9 +7847,7 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["its", "it"],
-        ["carson", "carson"],
-        ["my", "you", "you", "i", "i", "you", "i", "you", "i", "i", "my", "my", "your", "you", "you", "i", "i", "i", "my"]
+        ["my", "you", "i", "i", "you", "i", "your", "you", "i", "i", "my"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -8097,8 +8059,7 @@
     }],
     "coreference_chain": [
         ["they", "they"],
-        ["its", "its", "it"],
-        ["you", "you", "i", "you", "i", "i", "my", "my", "you", "i", "your", "your", "you", "i", "you", "i", "i", "you", "i", "my", "i", "yours", "my", "my", "i", "you", "you", "i"]
+        ["you", "you", "i", "i", "your", "your", "i", "you", "you", "i", "my", "my", "my", "you"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -8345,11 +8306,8 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["a lot", "it"],
         ["my neighbors", "their"],
-        ["you", "you", "you", "i", "i", "you", "i", "you", "i", "i", "i", "i", "i", "i", "i", "my", "you", "your", "my", "i", "i", "i", "i", "you", "me", "i", "i", "your"],
-        ["that", "that"],
-        ["them", "them"]
+        ["you", "you", "i", "i", "i", "you", "i", "i", "i", "i", "my", "my", "i", "you", "me"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -8607,8 +8565,8 @@
     }],
     "coreference_chain": [
         ["its", "its"],
-        ["i", "i"],
-        ["you", "you", "you", "i", "you", "i", "i", "i", "i", "you", "i", "i", "you", "i", "i", "i", "you", "i", "i"]
+        ["i", "i", "i", "i", "i", "i", "i"],
+        ["you", "you", "you", "you"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -8854,9 +8812,7 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["some of short stories", "them"],
-        ["your favorite movie", "my favourite movie"],
-        ["your", "mine", "my", "my", "you", "i", "you", "i", "my", "i", "i", "my", "you", "i", "i", "i", "i", "you", "i", "i", "i", "i", "i", "i"]
+        ["your", "mine", "my", "you", "i", "i", "my", "i", "i", "you", "i", "i"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -9107,9 +9063,8 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["you", "you", "you", "you", "you", "you", "you", "you", "you", "i", "you"],
-        ["i", "i", "i", "i", "my", "i", "i", "i", "my"],
-        ["she", "her"]
+        ["i", "i", "my", "i", "i", "my"],
+        ["you", "you", "you", "you"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -9354,8 +9309,7 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["my hobbies", "your hobbies"],
-        ["you", "i", "you", "i", "you", "you", "i", "my", "i", "your", "i", "my", "i", "i", "i", "you", "i", "i", "i", "you", "i", "i", "i", "you", "i"]
+        ["i", "you", "you", "your", "i", "i", "i", "i", "i", "i", "i", "i", "you"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -9596,8 +9550,8 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["that", "that"],
-        ["i", "i", "you", "i", "i", "you", "your", "my", "you", "i", "i", "you", "i", "you"]
+        ["you", "i", "i", "you"],
+        ["that", "that"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -9837,9 +9791,8 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["a fashion show at the police softball tournament", "it"],
-        ["you", "i", "you", "i", "my", "you", "i", "my", "me", "you", "i", "i", "my", "i", "my", "i", "i", "i", "you", "you"],
-        ["my baby brother", "his"]
+        ["you", "i", "my", "me", "i", "i", "my", "my", "i", "i"],
+        ["a fashion show at the police softball tournament", "it"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }, {
@@ -10133,10 +10086,10 @@
         "linked_entity_criteria": [0, 0]
     }],
     "coreference_chain": [
-        ["uncle peter", "he", "he", "him"],
-        ["aunt matilda", "its"],
-        ["my", "i", "you", "me", "i", "you", "i", "my", "i", "you", "i", "myself", "my", "me", "me", "i", "my", "i", "i", "i", "i", "i", "you", "you", "my", "me", "my", "you", "i", "you"],
-        ["my aunt uncle", "they"]
+        ["my aunt uncle", "they"],
+        ["uncle peter", "he"],
+        ["my", "me", "i", "i", "my", "i", "my", "me", "me", "i", "i", "i"],
+        ["aunt matilda", "its"]
     ],
     "coreference_resolution_criteria": [0, 0]
 }]
