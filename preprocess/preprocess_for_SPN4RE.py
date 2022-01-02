@@ -24,6 +24,7 @@ def one_entity_mention(file):
 
 def correct_entity_mentions(datafile:str):
     data = list()
+
     with open("{}.json".format(datafile), "r") as f:
         for l in f:
             data.append(json.loads(l))
@@ -61,6 +62,7 @@ def find_closest_word(text:str, em:str):
             final_em += " "
             final_em += new_em[t]
     return final_em
+
 
 def filter_trpl_extr_trpls(datafile):
     data = list()
