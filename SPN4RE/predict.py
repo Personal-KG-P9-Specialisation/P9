@@ -109,7 +109,7 @@ def load_model(path_model, args):
 
 tokenizer = BertTokenizer.from_pretrained(args.bert_directory, do_lower_case=False)
 data = build_data(args)
-model = load_model("/home/test/Github/code/SPN4RE/data/generated_data/model_param/SetPred4RE_WebNLG_epoch_0_f1_0.3946.model",args)
+model = load_model("/home/test/Github/code/SPN4RE/data/generated_data/model_param/nSetPred4RE_WebNLG_epoch_3_f1_0.3928.model",args)
 #SetPred4RE(args, data.relational_alphabet.size())
 #test
 utterance = "my mom had me in mcdonalds ."

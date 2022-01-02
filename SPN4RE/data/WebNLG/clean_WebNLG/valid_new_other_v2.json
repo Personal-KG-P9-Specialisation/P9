@@ -1,0 +1,122 @@
+{"sentText": "that is great , me too ! i am married and my husband and i have 2 children .", "relationMentions": [{"em1Text": "i", "em2Text": "and children", "label": "have_chidren"}]}
+{"sentText": "oh man sorry about that , i am 33 and love giving back i grew up poor", "relationMentions": [{"em1Text": "i", "em2Text": "giving up poor", "label": "other"}]}
+{"sentText": "i am busy studying psychology for my graduate school class . you ?", "relationMentions": [{"em1Text": "i", "em2Text": "studying graduate", "label": "school_status"}]}
+{"sentText": "jacksonville . i work at burger king and do not use drugs if that helps .", "relationMentions": [{"em1Text": "i", "em2Text": "do drugs", "label": "other"}]}
+{"sentText": "no i live in the middle of no where . miles of country .", "relationMentions": [{"em1Text": "i", "em2Text": "the country", "label": "live_in_general"}]}
+{"sentText": "yeah . that is why i blast my country music . they hear me coming !", "relationMentions": [{"em1Text": "i", "em2Text": "country they", "label": "live_in_general"}]}
+{"sentText": "i like country too ! i am kinda tired tonight from a long day at the shipyard .", "relationMentions": [{"em1Text": "i", "em2Text": "i a shipyard", "label": "employed_by_general"}]}
+{"sentText": "nice . my cousin is an engineer and hates video games . but i love donuts .", "relationMentions": [{"em1Text": "i my and", "em2Text": "video games", "label": "like_activity"}]}
+{"sentText": "i love cookies and bake sale but you are freaking me out .", "relationMentions": [{"em1Text": "i", "em2Text": "bake sale out", "label": "favorite_place"}]}
+{"sentText": "i inherited some money and bought a yacht to travel , i try different foods traveling", "relationMentions": [{"em1Text": "i", "em2Text": "try foods", "label": "like_activity"}]}
+{"sentText": "cheeseburgers are great , i try all kinds of foods everywhere i go , gotta love food .", "relationMentions": [{"em1Text": "i", "em2Text": "try food", "label": "like_activity"}]}
+{"sentText": "wow . can i have organic stuff ? i am browsing the internet a lot .", "relationMentions": [{"em1Text": "i", "em2Text": "browsing internet", "label": "like_general"}]}
+{"sentText": "well i play tennis professionally and take care of my growing family .", "relationMentions": [{"em1Text": "my family", "em2Text": "growing", "label": "other"}]}
+{"sentText": "my mother thinks i should just get married and stay in india .", "relationMentions": [{"em1Text": "my i", "em2Text": "india", "label": "place_origin"}]}
+{"sentText": "paella is my favorite dish to cook .", "relationMentions": [{"em1Text": "is", "em2Text": "paella cook", "label": "like_general"}]}
+{"sentText": "wow , and i thought having a transplant for my heart that was outside my body was bad !", "relationMentions": [{"em1Text": "i", "em2Text": "heart outside body", "label": "physical_attribute"}]}
+{"sentText": "i have cancer and no smartphone", "relationMentions": [{"em1Text": "i", "em2Text": "have smartphone", "label": "other"}]}
+{"sentText": "do you have any hobbies ? i play a couple instruments and i am a piano teacher .", "relationMentions": [{"em1Text": "i", "em2Text": "play instruments", "label": "has_ability"}]}
+{"sentText": "great ! my helmet is red and my motorbike is blue and my eyes are brown .", "relationMentions": [{"em1Text": "is", "em2Text": "helmet motorbike", "label": "own"}]}
+{"sentText": "i blame my skateboarding friends", "relationMentions": [{"em1Text": "my friends", "em2Text": "skateboarding", "label": "has_hobby"}]}
+{"sentText": "i love listening to country music , its the best genre", "relationMentions": [{"em1Text": "i", "em2Text": "country the", "label": "live_in_general"}]}
+{"sentText": "my parents were killed by a clown when i was three . i was then adopted", "relationMentions": [{"em1Text": "i", "em2Text": "a was adopted", "label": "other"}]}
+{"sentText": "i only like country . play it all day on the farm .", "relationMentions": [{"em1Text": "i", "em2Text": "country the", "label": "live_in_general"}]}
+{"sentText": "i have a job in the shipyard when i am not volunteering to pet the bunnies .", "relationMentions": [{"em1Text": "i", "em2Text": "a in shipyard", "label": "employed_by_general"}]}
+{"sentText": "i was too poor to afford anything really growing up", "relationMentions": [{"em1Text": "i", "em2Text": "was poor growing up", "label": "other"}]}
+{"sentText": "i would dry that , do you want to play an video games ?", "relationMentions": [{"em1Text": "i an", "em2Text": "video games", "label": "like_activity"}]}
+{"sentText": "then you have great peace . and a nice car too . i drive a minivan .", "relationMentions": [{"em1Text": "i", "em2Text": "and minivan", "label": "own"}]}
+{"sentText": "i like to ride my motorcycle when possible . i always have to have a helmet !", "relationMentions": [{"em1Text": "i", "em2Text": "motorcycle helmet", "label": "own"}]}
+{"sentText": "i have pale skin and large brown eyes . and i wear my bike helmet all the time .", "relationMentions": [{"em1Text": "i", "em2Text": "skin eyes", "label": "have"}]}
+{"sentText": "when i try to read i say to myself farmer george no time for reading", "relationMentions": [{"em1Text": "i", "em2Text": "i farmer george", "label": "other"}]}
+{"sentText": "yes i am . would you believe farmer george is married to an italian model ?", "relationMentions": [{"em1Text": "i", "em2Text": "am george is", "label": "other"}]}
+{"sentText": "i particularly enjoy browsing the web myself . i also love solar technology !", "relationMentions": [{"em1Text": "i", "em2Text": "also solar", "label": "have"}]}
+{"sentText": "i was in a refuge camp in somalia , my aunt rescued my sister and i .", "relationMentions": [{"em1Text": "i", "em2Text": "was in somalia", "label": "other"}]}
+{"sentText": "i am more focused on my friends . i do not drink or smoke like they do though", "relationMentions": [{"em1Text": "i", "em2Text": "on do", "label": "other"}]}
+{"sentText": "my parents are bankers , they are training me to take money from helpless goyim .", "relationMentions": [{"em1Text": "my they", "em2Text": "money", "label": "have"}]}
+{"sentText": "i have the ability to make time stop .", "relationMentions": [{"em1Text": "i", "em2Text": "the to", "label": "has_ability"}]}
+{"sentText": "my favorite skateboarder is rob dryden", "relationMentions": [{"em1Text": "is", "em2Text": "skateboarder rob dryden", "label": "favorite"}]}
+{"sentText": "i am 12 and the kids pick on me because i have long red hair .", "relationMentions": [{"em1Text": "i", "em2Text": "and red hair", "label": "physical_attribute"}]}
+{"sentText": "i am really old born early 80s but like old hip hop .", "relationMentions": [{"em1Text": "i", "em2Text": "i born 80s", "label": "other"}]}
+{"sentText": "i must be bold because i grew up in a poor household .", "relationMentions": [{"em1Text": "i", "em2Text": "up poor", "label": "other"}]}
+{"sentText": "no i am single , my ex cheated on me with a lawyer !", "relationMentions": [{"em1Text": "my ex", "em2Text": "me lawyer", "label": "other"}]}
+{"sentText": "not much , they run in front of my skateboard good job i wear a hat !", "relationMentions": [{"em1Text": "i", "em2Text": "a wear hat", "label": "like_general"}]}
+{"sentText": "spain sounds lovely ! in somalia i was being forced to marry someone i hated . . . .", "relationMentions": [{"em1Text": "i", "em2Text": "in somalia was", "label": "other"}]}
+{"sentText": "i came after my aunt helped me escaped somalia when i was young", "relationMentions": [{"em1Text": "i", "em2Text": "i somalia was", "label": "other"}]}
+{"sentText": "my hat flew off while i was skateboarding and i lost it , i do not work", "relationMentions": [{"em1Text": "i", "em2Text": "hat skateboarding", "label": "like_general"}]}
+{"sentText": "i am a nurse at a home", "relationMentions": [{"em1Text": "i", "em2Text": "nurse home", "label": "employed_by_general"}]}
+{"sentText": "i enjoy cooking , especially paella , and i like to travel .", "relationMentions": [{"em1Text": "i", "em2Text": "cooking paella", "label": "like_general"}]}
+{"sentText": "i wish my parents would stop saying singing folk music is not a realistic dream", "relationMentions": [{"em1Text": "my parents", "em2Text": "my dream", "label": "dislike"}]}
+{"sentText": "hi , tracy here , my children and i leaving for out house in florida .", "relationMentions": [{"em1Text": "i", "em2Text": "in house florida", "label": "have"}]}
+{"sentText": "i see . my five sons sing like the jackson 5 .", "relationMentions": [{"em1Text": "i", "em2Text": "sons 5", "label": "have_chidren"}]}
+{"sentText": "i have an older brother", "relationMentions": [{"em1Text": "brother", "em2Text": "i older", "label": "has_age"}]}
+{"sentText": "i am getting a divorce and i would like a new job , too . hate it !", "relationMentions": [{"em1Text": "i", "em2Text": "getting divorce", "label": "marital_status"}]}
+{"sentText": "i am 13 with an older brother .", "relationMentions": [{"em1Text": "brother", "em2Text": "i older", "label": "has_age"}]}
+{"sentText": "i have 2 adult children , i never see them though .", "relationMentions": [{"em1Text": "i", "em2Text": "2 children", "label": "have_chidren"}]}
+{"sentText": "i am not really sure . i broken my arm skateboarding .", "relationMentions": [{"em1Text": "i", "em2Text": "broken arm", "label": "have"}]}
+{"sentText": "i grew up on a farm , we raised horses . we had lots of critters to deal with", "relationMentions": [{"em1Text": "i", "em2Text": "farm horses", "label": "live_in_general"}]}
+{"sentText": "my parents would yell if they heard britney spears ! their farm is country only !", "relationMentions": [{"em1Text": "is", "em2Text": "they country", "label": "live_in_general"}]}
+{"sentText": "i was same way when i gew up since we were poor my 1st job was mcdonalds", "relationMentions": [{"em1Text": "i", "em2Text": "was up poor", "label": "other"}]}
+{"sentText": "i have two cats . i watch the birds outside . it is getting close to holidays .", "relationMentions": [{"em1Text": "i", "em2Text": "watch birds", "label": "has_hobby"}]}
+{"sentText": "i guess it is because i do not have time with the gym , work , tv , and cars .", "relationMentions": [{"em1Text": "i", "em2Text": "i time with tv", "label": "has_hobby"}]}
+{"sentText": "awesome , i am afraid of heights , but i help out at the food bank sometimes", "relationMentions": [{"em1Text": "i", "em2Text": "help at food bank", "label": "has_hobby"}]}
+{"sentText": "so cute i love puts , do you have kids ? my step children are great", "relationMentions": [{"em1Text": "puts my", "em2Text": "children", "label": "have_chidren"}]}
+{"sentText": "no , we look out of the windows . i think the birds are attracted to my bright hair .", "relationMentions": [{"em1Text": "i", "em2Text": "think birds", "label": "has_hobby"}]}
+{"sentText": "i volunteer at a food bank , so i talk to all kinds of people .", "relationMentions": [{"em1Text": "i", "em2Text": "at food bank", "label": "has_hobby"}]}
+{"sentText": "you remind me of the girls in this movie called mean girls . try to be nice !", "relationMentions": [{"em1Text": "in", "em2Text": "girls mean", "label": "favorite_movie"}]}
+{"sentText": "i am okay . watching old videos of rob dryden , a skateboarder .", "relationMentions": [{"em1Text": "i", "em2Text": "rob dryden skateboarder", "label": "favorite"}]}
+{"sentText": "my dad is a farmer , and i help him in the fields for fun . you ?", "relationMentions": [{"em1Text": "my the", "em2Text": "farmer", "label": "has_profession"}]}
+{"sentText": "that is awesome . i do not like school and have blue eyes", "relationMentions": [{"em1Text": "i", "em2Text": "that and blue eyes", "label": "physical_attribute"}]}
+{"sentText": "that is fine . just do not put a television in there and add shades of moonlight .", "relationMentions": [{"em1Text": "is", "em2Text": "not television shades", "label": "other"}]}
+{"sentText": "i love playing soccer . my older brother taught me . i do not like math .", "relationMentions": [{"em1Text": "my brother", "em2Text": "i older", "label": "has_age"}]}
+{"sentText": "good ! i just got back from riding horses on my farm !", "relationMentions": [{"em1Text": "i", "em2Text": "horses farm", "label": "live_in_general"}]}
+{"sentText": "i am sitting on my couch watching my cat look at birds outside .", "relationMentions": [{"em1Text": "i", "em2Text": "watching birds", "label": "has_hobby"}]}
+{"sentText": "vegas is fun . i do not eat much so i can stay skinny and wear those jeans .", "relationMentions": [{"em1Text": "i", "em2Text": "skinny jeans", "label": "like_general"}]}
+{"sentText": "my favorite food right now is papaya , name is george", "relationMentions": [{"em1Text": "is", "em2Text": "is name george", "label": "other"}]}
+{"sentText": "how are you ? i am great . going to ride my arabian horse .", "relationMentions": [{"em1Text": "i", "em2Text": "ride horse", "label": "has_hobby"}]}
+{"sentText": "i like to do cosplay and dress up like action figures . maybe i will be captain donut", "relationMentions": [{"em1Text": "i", "em2Text": "like cosplay action", "label": "has_hobby"}]}
+{"sentText": "i like music . my father taught me to play a lot of instruments", "relationMentions": [{"em1Text": "i", "em2Text": "play instruments", "label": "has_ability"}]}
+{"sentText": "i live in a small time and i hope to become a lawyer", "relationMentions": [{"em1Text": "i", "em2Text": "small to", "label": "place_origin"}]}
+{"sentText": "do you live in the city ? i am tired of horses in the farm", "relationMentions": [{"em1Text": "i", "em2Text": "horses farm", "label": "live_in_general"}]}
+{"sentText": "wish i could . born and bred in somalia , where i was forced to marry as a kid .", "relationMentions": [{"em1Text": "i", "em2Text": "born in somalia was", "label": "other"}]}
+{"sentText": "yea it is hard both my teachers are as well so i had to be one", "relationMentions": [{"em1Text": "my are", "em2Text": "teachers", "label": "previous_profession"}]}
+{"sentText": "no i have not . i ride horses though , my family has raised them for generations", "relationMentions": [{"em1Text": "i", "em2Text": "horses family", "label": "live_in_general"}]}
+{"sentText": "i was dirt poor , went to a soup kitchen every day . now volunteer there .", "relationMentions": [{"em1Text": "i", "em2Text": "was poor soup", "label": "other"}]}
+{"sentText": "mexican food is good ! i get to try many types of food due to travel !", "relationMentions": [{"em1Text": "i", "em2Text": "food try", "label": "like_activity"}]}
+{"sentText": "blue . . . i believe . my hobby is skateboarding , and i broke my arm one time", "relationMentions": [{"em1Text": "i", "em2Text": "broke arm", "label": "have"}]}
+{"sentText": "i come from a military family . my grandfather served in a world war", "relationMentions": [{"em1Text": "my grandfather", "em2Text": "a served in world war", "label": "employed_by_general"}]}
+{"sentText": "i want to leave the job but my parents make me stay", "relationMentions": [{"em1Text": "i", "em2Text": "but me", "label": "want_do"}]}
+{"sentText": "hey , i was freaking poor growing up ! but my favorite food was cheeseburgers !", "relationMentions": [{"em1Text": "i", "em2Text": "was poor growing up", "label": "other"}]}
+{"sentText": "we have to believe in us i am overweight and i do not know last time i was happy", "relationMentions": [{"em1Text": "i", "em2Text": "believe not", "label": "have"}]}
+{"sentText": "no i am stuck here for shoplifting , my mom at least is visiting me tomorrow .", "relationMentions": [{"em1Text": "here my", "em2Text": "visiting me", "label": "want_do"}]}
+{"sentText": "music . i play the piano , my dad was a professional musician .", "relationMentions": [{"em1Text": "the my", "em2Text": "musician", "label": "has_profession"}]}
+{"sentText": "my older brother says the same exact phrase ! ! haha i am doing alright just finished soccer", "relationMentions": [{"em1Text": "my brother", "em2Text": "older i", "label": "has_age"}]}
+{"sentText": "hey there , that sounds good right now , i am learning a new recipe , love cooking", "relationMentions": [{"em1Text": "i", "em2Text": "good new", "label": "like_activity"}]}
+{"sentText": "i love music ! i play a few different instruments and teach piano on the side .", "relationMentions": [{"em1Text": "i", "em2Text": "play instruments", "label": "has_ability"}]}
+{"sentText": "it is an easter egg in the game the orange robot plays the guitar .", "relationMentions": [{"em1Text": "it", "em2Text": "an robot", "label": "has_hobby"}]}
+{"sentText": "i was a poor kid . we ate there a lot while growing up .", "relationMentions": [{"em1Text": "i", "em2Text": "was poor growing up", "label": "other"}]}
+{"sentText": "o really my all time fave skater is rob dryden all my friends skate", "relationMentions": [{"em1Text": "is", "em2Text": "skater rob dryden", "label": "favorite"}]}
+{"sentText": "that is so worthwhile . i was pretty poor when i was young .", "relationMentions": [{"em1Text": "i", "em2Text": "was poor", "label": "other"}]}
+{"sentText": "that is so worthwhile . i was pretty poor when i was young .", "relationMentions": [{"em1Text": "i", "em2Text": "was poor", "label": "other"}]}
+{"sentText": "that is so worthwhile . i was pretty poor when i was young .", "relationMentions": [{"em1Text": "i", "em2Text": "was poor", "label": "other"}]}
+{"sentText": "you know i remember when plays were just like tv and people went of for entertainment", "relationMentions": [{"em1Text": "i", "em2Text": "know remember when and people", "label": "other"}]}
+{"sentText": "nice ! do you have siblings ? i have 3 older sisters and one little brother .", "relationMentions": [{"em1Text": "i", "em2Text": "3 sisters", "label": "have_family"}, {"em1Text": "i", "em2Text": "3 sisters", "label": "have_sibling"}]}
+{"sentText": "two days . also i keep getting set up on blind dates by my father .", "relationMentions": [{"em1Text": "my father", "em2Text": "two set up on blind dates", "label": "want_do"}]}
+{"sentText": "i was adopted to two older people who dressed up as clowns to scare me !", "relationMentions": [{"em1Text": "i", "em2Text": "was as adopted", "label": "other"}]}
+{"sentText": "i just enjoy photography and the colors red and silver .", "relationMentions": [{"em1Text": "i", "em2Text": "and red silver", "label": "favorite_color"}]}
+{"sentText": "i love to ride my motorbike outdoors , with a helmet to protect my head .", "relationMentions": [{"em1Text": "i", "em2Text": "motorbike helmet", "label": "own"}]}
+{"sentText": "florida . i own a home there . 2 kids , a dog a lady .", "relationMentions": [{"em1Text": "i", "em2Text": "florida i home", "label": "have"}]}
+{"sentText": "great ! my second job is being a stunt double , no broken bones ever .", "relationMentions": [{"em1Text": "is", "em2Text": "a my broken bones ever", "label": "other"}]}
+{"sentText": "yes i work . i am in the construction business , i mainly build houses . what about you ?", "relationMentions": [{"em1Text": "i", "em2Text": "work construction", "label": "has_profession"}]}
+{"sentText": "lol , maybe . i usually wear band shirts and ruffle sleeves , skinny jeans and leggings", "relationMentions": [{"em1Text": "i", "em2Text": "band and shirts ruffle sleeves", "label": "favorite"}]}
+{"sentText": "i like survival games . reminds me of when my aunt helped me escape somalia .", "relationMentions": [{"em1Text": "i", "em2Text": "i somalia", "label": "other"}]}
+{"sentText": "yes i am . my aunt helped me escape somalia when i was thirteen years old .", "relationMentions": [{"em1Text": "i", "em2Text": "i somalia was", "label": "other"}]}
+{"sentText": "i like to ride horses and be on a farm .", "relationMentions": [{"em1Text": "i", "em2Text": "horses farm", "label": "live_in_general"}]}
+{"sentText": "well , i am in the united states too , but i came from somalia .", "relationMentions": [{"em1Text": "i", "em2Text": "in somalia", "label": "other"}]}
+{"sentText": "great ! i love shoes and want a rolls royce one day . you drive ?", "relationMentions": [{"em1Text": "i", "em2Text": "shoes rolls royce", "label": "want"}]}
+{"sentText": "yes , i am 13 and i have an older brother .", "relationMentions": [{"em1Text": "brother", "em2Text": "i older", "label": "has_age"}]}
+{"sentText": "i like to wear hats . people get a kick out of it .", "relationMentions": [{"em1Text": "i", "em2Text": "wear a hats", "label": "like_general"}]}
+{"sentText": "i was born with a heart condition and received a transplant . it changed me .", "relationMentions": [{"em1Text": "i", "em2Text": "born heart", "label": "physical_attribute"}]}
+{"sentText": "as a child we were poor , so i spend most time volunteering at a soup kitchen .", "relationMentions": [{"em1Text": "i", "em2Text": "as poor soup", "label": "other"}]}
+{"sentText": "be okay i do not see why everyone want to watch tv just go for a walk", "relationMentions": [{"em1Text": "i", "em2Text": "not tv", "label": "own"}]}
+{"sentText": "you better . with or without tv . nobody had tv when i was young .", "relationMentions": [{"em1Text": "i", "em2Text": "had when", "label": "other"}]}
+{"sentText": "do you like sports ? i love tennis and play it for a living .", "relationMentions": [{"em1Text": "i", "em2Text": "tennis play", "label": "has_profession"}]}
