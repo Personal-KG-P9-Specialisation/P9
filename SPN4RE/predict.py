@@ -101,7 +101,7 @@ def predict_triples(utterance, model, tokenizer, relation_alphabet):
 
 def load_model(path_model, args):
     model = SetPred4RE(args, 61)
-    state_dict = torch.load(path_model)
+    state_dict = torch.load(path_model, map_location=torch.device('cpu'))
     model.load_state_dict(state_dict["state_dict"])
     return model
 def predict_data(path, save_path):
@@ -112,12 +112,11 @@ def predict_data(path, save_path):
     conv_data = json.load(open(path,"r"))
     for d in conv_data:
         for m in d['messages']:
-            triples = predict_triples(m[],model,tokenizer,data.relational_alphabet)
-            triples = [["I","have", "object"], ["I","have", "not"]]
+            triples = predict_triples(m['utterance'],model,tokenizer,data.relational_alphabet)
             m['extracted_triple_SPN4RE'] = triples
     json.dump(conv_data,open(save_path,"w"))
 
-predict_data("../data/random_sample/sample_v2_results.json","data.json")
+predict_data("../data/random_sample/sample_v2_results.json","../data/random_sample/sample_v2_results_spn_added.json")
 
 #test
 #tokenizer = BertTokenizer.from_pretrained(args.bert_directory, do_lower_case=False)
