@@ -89,7 +89,7 @@ def entity_linking (text, triple_corpus):
 
     all_linked_entities = doc._.linkedEntities
 
-    # Replace entities in the extracted triples with linked entities.
+    # Replace entities in the extracted openIE triples with linked entities.
     for triple in triple_corpus:
         for entity in all_linked_entities:
             temp = str(entity.get_span())
@@ -101,6 +101,22 @@ def entity_linking (text, triple_corpus):
                 triple['object'] = new_name
 
     return triple_corpus
+
+# Special entity linking for the spn4re example triples.
+def entity_linking_spn4re (text, triples):
+    nlp = spacy.load("en_core_web_md")
+    nlp.add_pipe("entityLinker", last=True)
+    doc = nlp(text)
+
+    all_linked_entities = doc._.linkedEntities
+    seen_entities = list()
+
+    for entity in all_linked_entities:
+        if str(entity.get_id()) not in seen_entities:
+            new_name = entity.get_label() + "_Q" + str(entity.get_id())
+            triples = triples.replace(str(entity.get_span()), new_name)
+            seen_entities.append(str(entity.get_id()))
+    return triples
 
 # Performs entity linking using the Spacy library on one entity.
 def entity_linking_single (text):
@@ -176,8 +192,22 @@ def combined_joint (text, optional_coreference):
         temp = triple_list_to_string(triple_corpus)
         temp = remove_duplicates(temp)
 
-        # Find a better tool for generating graphs
         client.generate_graphviz_graph(temp, graph_image)
+        print('Graph generated: %s.' % graph_image)
+
+# Overall architecture, specialised for the example conversation with SPN4RE
+def combined_joint_spn4re (text, triples):
+    properties = {
+        'openie.affinity_probability_cap': 2 / 3,
+    }
+    with StanfordOpenIE(properties=properties) as client:
+        triples_linked = entity_linking_spn4re(text, triples)
+        triples_linked = remove_duplicates(triples_linked)
+        print(triples_linked)
+
+        graph_image = 'graph.png'
+        # Find a better tool for generating graphs
+        client.generate_graphviz_graph(triples_linked, graph_image)
         print('Graph generated: %s.' % graph_image)
 
 if __name__ == '__main__':
@@ -185,4 +215,11 @@ if __name__ == '__main__':
     optional_coreference = True
     
     combined_joint(data, optional_coreference)
+
+    # Example conversation with SPN4RE applied.
+    # with open('spn4re-coref.txt') as f:
+            # temp = f.readlines()
+            # temp = list_to_string(temp)
+
+    # combined_joint_spn4re(data, temp)
 
