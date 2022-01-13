@@ -22,7 +22,6 @@ def triple_list_to_string(s):
         test = list(ele.values())
         for result in test:
             str1 += (result + " ")
-            # entity_linking(str1)
         str1 += ". "
     return str1 
 
@@ -32,17 +31,6 @@ def print_triple_corpus (triple_corpus):
     for triple in triple_corpus:
         print('|-', triple)
     print('[...]')
-
-# Generates a graph using Graphviz.
-def openie_graph (triple_corpus):
-    properties = {
-        'openie.affinity_probability_cap': 2 / 3,
-    }
-    with StanfordOpenIE(properties=properties) as client:
-        graph_image = 'graph.png'
-        temp = triple_list_to_string(triple_corpus)
-        client.generate_graphviz_graph(temp, graph_image)
-        print('Graph generated: %s.' % graph_image)
 
 # Extracts triples using the Stanford OpenIE library.
 def openie_extract_triples (text):
@@ -70,16 +58,6 @@ def coreference_integration (text):
         for ref in chain:
             text_without_symbols = text_without_symbols.replace(ref[3], chain[0][3])
     return text_without_symbols
-
-# Combines coreference resolution with triple extraction.
-def triple_integration (text):
-    # Annotates text with coreferences.
-    annotated_text = coreference_integration(text)
-    
-    # Extracts triples on the text annotated with coreference chains.
-    triples = openie_extract_triples(annotated_text)
-
-    return triples
 
 # Performs entity linking using the Spacy library on regular text.
 def entity_linking (text, triple_corpus):
