@@ -55,7 +55,7 @@ def openie_stats (data):
             if j["criteria_openIE"] == 2:
                 partially_right_count += 1
             if j["criteria_openIE"] == 3:
-                print("lol")
+                partially_right_count += 1
     
     print("Wrong triples:\t\t\t\t" + str(wrong_count))
     print("Right triples:\t\t\t\t" + str(right_count))
