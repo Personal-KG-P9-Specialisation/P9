@@ -107,7 +107,7 @@ def load_model(path_model, args):
 def predict_data(path, save_path):
     tokenizer = BertTokenizer.from_pretrained(args.bert_directory, do_lower_case=False)
     data = build_data(args)
-    model = load_model("/home/test/Github/code/SPN4RE/data/generated_data/model_param/nSetPred4RE_WebNLG_epoch_3_f1_0.3928.model",args)
+    model = load_model(os.getenv('modelpath'),args) #"/home/test/Github/code/SPN4RE/data/generated_data/model_param/nSetPred4RE_WebNLG_epoch_3_f1_0.3928.model"
     
     conv_data = json.load(open(path,"r"))
     for d in conv_data:
@@ -116,7 +116,9 @@ def predict_data(path, save_path):
             m['extracted_triple_SPN4RE'] = triples
     json.dump(conv_data,open(save_path,"w"))
 
-predict_data("../data/random_sample/sample_v2_results.json","../data/random_sample/sample_v2_results_spn_added.json")
+#predict_data("../data/random_sample/sample_v2_results.json","../data/random_sample/sample_v2_results_spn_added.json")
+
+
 
 #test
 #tokenizer = BertTokenizer.from_pretrained(args.bert_directory, do_lower_case=False)

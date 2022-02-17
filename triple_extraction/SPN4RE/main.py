@@ -39,7 +39,8 @@ def remove_accents(text: str) -> str:
                             )
         return text.translate(accents_translation_table)
 
-
+#to train set environment variables to strin path to json files: 'traindata', validdata, testdata
+#generated data directory, set environment variables: generated_data
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
@@ -47,14 +48,15 @@ if __name__ == '__main__':
     
     torch.cuda.is_available()
     data_arg.add_argument('--dataset_name', type=str, default="WebNLG")
-    data_arg.add_argument('--train_file', type=str, default="./data/WebNLG/clean_WebNLG/train_new_new_v2.json")
-    data_arg.add_argument('--valid_file', type=str, default="./data/WebNLG/clean_WebNLG/valid_new_new_v2.json")
-    data_arg.add_argument('--test_file', type=str, default="./data/WebNLG/clean_WebNLG/test_new_new_v2.json")
+    data_arg.add_argument('--train_file', type=str, default=os.getenv('traindata')) #"./data/WebNLG/clean_WebNLG/train_new_new_v2.json"
+    data_arg.add_argument('--valid_file', type=str, default=os.getenv('validdata')) #"./data/WebNLG/clean_WebNLG/valid_new_new_v2.json"
+    data_arg.add_argument('--test_file', type=str, default=os.getenv('testdata')) #"./data/WebNLG/clean_WebNLG/test_new_new_v2.json"
 
-    data_arg.add_argument('--generated_data_directory', type=str, default="./data/generated_data/")
-    data_arg.add_argument('--generated_param_directory', type=str, default="./data/generated_data/model_param/")
-    data_arg.add_argument('--bert_directory', type=str, default="./bert_base_cased/")
+    data_arg.add_argument('--generated_data_directory', type=str, default=os.getenv('generated_data')) # "./data/generated_data/"
+    data_arg.add_argument('--generated_param_directory', type=str, default=os.getenv('generated_data').append('/model_param/')) #"./data/generated_data/model_param/"
+    data_arg.add_argument('--bert_directory', type=str, default=os.getenv('bert')) #"./bert_base_cased/"
     data_arg.add_argument("--partial", type=str2bool, default=False)
+
     learn_arg = add_argument_group('Learning')
     learn_arg.add_argument('--model_name', type=str, default="Set-Prediction-Networks")
     learn_arg.add_argument('--num_generated_triples', type=int, default=10)

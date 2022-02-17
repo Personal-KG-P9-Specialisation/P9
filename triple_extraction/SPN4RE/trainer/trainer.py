@@ -98,8 +98,6 @@ class Trainer(nn.Module):
                 torch.save({'state_dict': self.model.state_dict()}, self.args.generated_param_directory + "%s_%s_epoch_%d_f1_%.4f.model" %("SetPred4RE", self.args.dataset_name, epoch, result['f1']))
                 best_f1 = f1
                 best_result_epoch = epoch
-            # if f1 <= 0.3 and epoch >= 10:
-            #     break
             gc.collect()
             torch.cuda.empty_cache()
         print("Best result on test set is %f achieving at epoch %d." % (best_f1, best_result_epoch), flush=True)
