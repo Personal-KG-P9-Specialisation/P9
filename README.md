@@ -30,3 +30,11 @@ Should extract the entities from the triples and map them to entities in an exis
 We also need to asses the architecture and therefore the combination of these existing solutions to the subtasks. Currently, we have eperimented with the following components in the architecture:
 
 - Stanford Core NLP Coreference Resolution -> Stanford Core NLP OpenIE -> Spacy Entity Linker
+
+## Running the Experiments
+To run the code, docker can be used.
+```
+docker build -t test:test . #building the image
+docker run -it --rm --name devtest --mount type=bind,src="$(pwd)"/outputs,target=/code/outputs --mount type=bind,src="$(pwd)"/outputs,target=/code/data test:test python3 train.py
+
+```

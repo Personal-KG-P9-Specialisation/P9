@@ -31,13 +31,13 @@ def remove_accents(text: str) -> str:
 data_arg = add_argument_group('Data')
 """python3 -m predict --max_epoch 10 --use_gpu False"""
 data_arg.add_argument('--dataset_name', type=str, default="WebNLG")
-data_arg.add_argument('--train_file', type=str, default="./data/WebNLG/clean_WebNLG/train_new_new_v2.json")
-data_arg.add_argument('--valid_file', type=str, default="./data/WebNLG/clean_WebNLG/valid_new_new_v2.json")
-data_arg.add_argument('--test_file', type=str, default="./data/WebNLG/clean_WebNLG/test_new_new_v2.json")
+data_arg.add_argument('--train_file', type=str, default=os.getenv('traindata'))
+data_arg.add_argument('--valid_file', type=str, default=os.getenv('validdata'))
+data_arg.add_argument('--test_file', type=str, default=os.getenv('testdata'))
 
-data_arg.add_argument('--generated_data_directory', type=str, default="./data/generated_data/")
-data_arg.add_argument('--generated_param_directory', type=str, default="./data/generated_data/model_param/")
-data_arg.add_argument('--bert_directory', type=str, default="/home/test/Github/bert/bert-base-cased")
+data_arg.add_argument('--generated_data_directory', type=str, default=os.getenv('generated_data'))
+data_arg.add_argument('--generated_param_directory', type=str, default=os.getenv('generated_data') + '/model_param/')
+data_arg.add_argument('--bert_directory', type=str, default=os.getenv('bert'))
 data_arg.add_argument("--partial", type=str2bool, default=False)
 learn_arg = add_argument_group('Learning')
 learn_arg.add_argument('--model_name', type=str, default="Set-Prediction-Networks")
@@ -75,7 +75,8 @@ set_seed(args.random_seed)
 
 
 def predict_triples(utterance, model, tokenizer, relation_alphabet):
-    token_sent = [tokenizer.cls_token] + tokenizer.tokenize(remove_accents(utterance)) + [tokenizer.sep_token]
+    utt = utterance
+    token_sent = [tokenizer.cls_token] + tokenizer.tokenize(remove_accents(utt)) + [tokenizer.sep_token]
     sent_ids = tokenizer.convert_tokens_to_ids(token_sent)
     max_sent_len = len(sent_ids)
     input_ids = torch.zeros((1, max_sent_len), requires_grad=False).long()
@@ -99,7 +100,8 @@ def predict_triples(utterance, model, tokenizer, relation_alphabet):
         triples.append((head,relation,tail))
     return triples
 
-def load_model(path_model, args):
+def load_model(path_model):
+    global args
     model = SetPred4RE(args, 61)
     state_dict = torch.load(path_model, map_location=torch.device('cpu'))
     model.load_state_dict(state_dict["state_dict"])

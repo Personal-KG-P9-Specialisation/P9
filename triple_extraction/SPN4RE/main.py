@@ -53,7 +53,7 @@ if __name__ == '__main__':
     data_arg.add_argument('--test_file', type=str, default=os.getenv('testdata')) #"./data/WebNLG/clean_WebNLG/test_new_new_v2.json"
 
     data_arg.add_argument('--generated_data_directory', type=str, default=os.getenv('generated_data')) # "./data/generated_data/"
-    data_arg.add_argument('--generated_param_directory', type=str, default=os.getenv('generated_data').append('/model_param/')) #"./data/generated_data/model_param/"
+    data_arg.add_argument('--generated_param_directory', type=str, default=os.getenv('generated_data') + '/model_param/') #"./data/generated_data/model_param/"
     data_arg.add_argument('--bert_directory', type=str, default=os.getenv('bert')) #"./bert_base_cased/"
     data_arg.add_argument("--partial", type=str2bool, default=False)
 
