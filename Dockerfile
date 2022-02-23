@@ -19,18 +19,18 @@ RUN git clone https://huggingface.co/bert-base-cased
 ##TTAD dataset
 RUN mkdir data
 RUN mkdir -p data/generated
-RUN mkdir -p data/generated/generated_data
+#RUN mkdir -p data/generated/generated_data
 
 #OUTPUTs
-RUN mkdir outputs
-RUN mkdir -p outputs/model
-RUN mkdir -p outputs/logs
+#RUN mkdir outputs
+#RUN mkdir -p outputs/model
+#RUN mkdir -p outputs/logs
 
 COPY /triple_extraction/SPN4RE/data/WebNLG/clean_WebNLG/train_new_new_v2.json /data/train.json
 COPY /triple_extraction/SPN4RE/data/WebNLG/clean_WebNLG/valid_new_new_v2.json /data/valid.json
 COPY /triple_extraction/SPN4RE/data/WebNLG/clean_WebNLG/test_new_new_v2.json /data/test.json
 
-ENV traindata="/data/train.json" validdata="/data/valid.json" testdata="/data/test.json" generated_data="/data/generated/generated_data/" bert="/code/bert-base-cased/" modelpath="outputs/model" logs="outputs/logs"
+ENV traindata="/data/train.json" validdata="/data/valid.json" testdata="/data/test.json" generated_data="/outputs/generated_data/" bert="/code/bert-base-cased/" modelpath="outputs/model/" logs="outputs/logs"
 RUN apt-get --assume-yes install curl && apt-get install git-lfs && apt-get install wget
 RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
 RUN cd bert-base-cased && git lfs pull
