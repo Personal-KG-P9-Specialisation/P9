@@ -1,9 +1,9 @@
 import torch.nn as nn
 import torch
-from models.set_decoder import SetDecoder
-from models.set_criterion import SetCriterion
-from models.seq_encoder import SeqEncoder
-from utils.functions import generate_triple
+from triple_extraction.SPN4RE.models.set_decoder import SetDecoder
+from triple_extraction.SPN4RE.models.set_criterion import SetCriterion
+from triple_extraction.SPN4RE.models.seq_encoder import SeqEncoder
+from triple_extraction.SPN4RE.utils.functions import generate_triple
 import copy
 
 

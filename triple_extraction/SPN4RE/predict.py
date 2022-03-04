@@ -1,8 +1,11 @@
 import argparse, os, torch,json,sys
-from models.setpred4RE import SetPred4RE
-from utils.data import build_data
+sys.path.insert(0,"/code/triple_extraction/SPN4RE/models")
+print(sys.path)
+from triple_extraction.SPN4RE.models.setpred4RE import SetPred4RE
+from triple_extraction.SPN4RE.utils.data import build_data
 parser = argparse.ArgumentParser()
-from main import str2bool,set_seed
+import pickle
+from triple_extraction.SPN4RE.main import str2bool,set_seed
 try:
     from transformers import BertTokenizer
 except:
@@ -69,12 +72,13 @@ misc_arg.add_argument('--random_seed', type=int, default=1)
 
 args, unparsed = get_args()
 os.environ["CUDA_VISIBLE_DEVICES"] = str(args.visible_gpu)
-for arg in vars(args):
+if __name__ == "__main__":
+    for arg in vars(args):
             print(arg, ":",  getattr(args, arg))
 set_seed(args.random_seed)
 
 
-def predict_triples(utterance, model, tokenizer, relation_alphabet):
+def predict_triples(utterance, model, tokenizer, relation_alphabet, version='old'):
     utt = utterance
     token_sent = [tokenizer.cls_token] + tokenizer.tokenize(remove_accents(utt)) + [tokenizer.sep_token]
     sent_ids = tokenizer.convert_tokens_to_ids(token_sent)
@@ -97,30 +101,39 @@ def predict_triples(utterance, model, tokenizer, relation_alphabet):
         head = " ".join([x for x in head]).replace(" ##","")
         tail = token_sent[tail_s:tail_e+1]
         tail = " ".join([x for x in tail]).replace(" ##","")
-        triples.append((head,relation,tail))
+        if version == 'old':
+            triples.append((head,relation,tail))
+        else:
+            triples.append({'subject': head,'relation':relation,'object':tail})
     return triples
 
 def load_model(path_model):
-    global args
     model = SetPred4RE(args, 61)
     state_dict = torch.load(path_model, map_location=torch.device('cpu'))
     model.load_state_dict(state_dict["state_dict"])
     return model
+
 def predict_data(path, save_path):
     tokenizer = BertTokenizer.from_pretrained(args.bert_directory, do_lower_case=False)
     data = build_data(args)
-    model = load_model(os.getenv('modelpath'),args) #"/home/test/Github/code/SPN4RE/data/generated_data/model_param/nSetPred4RE_WebNLG_epoch_3_f1_0.3928.model"
+    model = load_model(os.getenv('modelpath')) #"/home/test/Github/code/SPN4RE/data/generated_data/model_param/nSetPred4RE_WebNLG_epoch_3_f1_0.3928.model"
     
-    conv_data = json.load(open(path,"r"))
+    conv_data = json.load(open(path, "r"))
     for d in conv_data:
         for m in d['messages']:
-            triples = predict_triples(m['utterance'],model,tokenizer,data.relational_alphabet)
+            triples = predict_triples(m['utterance'], model, tokenizer, data.relational_alphabet)
             m['extracted_triple_SPN4RE'] = triples
-    json.dump(conv_data,open(save_path,"w"))
+    json.dump(conv_data,open(save_path, "w"))
+def predict_utterance(utt):
+    arg = pickle.load(open(os.getenv('generated_data') + "args.pickle", "rb"))
+    tokenizer = BertTokenizer.from_pretrained(arg.bert_directory, do_lower_case=False)
+    data = build_data(arg)
+    model = load_model(os.getenv('trainedmodel'))
+    return predict_triples(utt, model, tokenizer, data.relational_alphabet, version="new")
 
+if __name__ == "__main__":
+    print("predict file")
 #predict_data("../data/random_sample/sample_v2_results.json","../data/random_sample/sample_v2_results_spn_added.json")
-
-
 
 #test
 #tokenizer = BertTokenizer.from_pretrained(args.bert_directory, do_lower_case=False)

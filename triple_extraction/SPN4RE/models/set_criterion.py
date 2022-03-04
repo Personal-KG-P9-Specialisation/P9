@@ -1,7 +1,7 @@
 import torch.nn.functional as F
 import torch.nn as nn
 import torch, math
-from models.matcher import HungarianMatcher
+from .matcher import HungarianMatcher
 
 
 class SetCriterion(nn.Module):

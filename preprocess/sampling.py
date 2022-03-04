@@ -45,7 +45,7 @@ def count_dialogues(file):
     print("Number of Dialogues in {} is {}".format(file,dial_count))
 
 #reformats personastyle rxt into objects
-def create_json_data(file):
+def create_json_data(file, optional_save = None):
     dialog_id = 0
     last =""
     with open(file,"r") as f:
@@ -80,19 +80,21 @@ def create_json_data(file):
             d.add_msg(msg)
         
     #print(json.dumps(dialogues,default=lambda a : getattr(a,'__dict__', str(a))))
-    #json.dump(dialogues,open("sample.json","w"),default=lambda a : getattr(a,'__dict__', str(a)))
+    if not optional_save is None:
+        json.dump(dialogues,open(optional_save,"w"),default=lambda a : getattr(a,'__dict__', str(a)))
     return dialogues
 
 #967 dialogues in test set
-def random_sample(dials, N):
-    rand_idx = list(np.random.permutation(np.arange(1,967))[:N])
+def random_sample(dials, N, savefile):
+    rand_idx = list(np.random.permutation(np.arange(1,len(dials)))[:N])
+    print("ids for {} conversations\n".format(N))
     print(rand_idx)
     sample_dials = [x for x in dials if x.id in rand_idx]
-    json.dump(sample_dials,open("sample.json","w"),default=lambda a : getattr(a,'__dict__', str(a)))
+    json.dump(sample_dials, open(savefile, "w"), default=lambda a: getattr(a,'__dict__', str(a)))
 
 if __name__ == "__main__":
     count_dialogues("../data/ConvAI2/test_both_original_final.txt")
     data = create_json_data("../data/ConvAI2/test_both_original_final.txt")    
-    random_sample(data,40)
+    random_sample(data, 40, "sample.json")
 #ids for 40 first
 #[298, 157, 864, 326, 300, 433, 74, 599, 664, 512, 705, 7, 37, 624, 261, 232, 866, 335, 941, 875, 748, 717, 468, 136, 474, 101, 841, 773, 965, 250, 775, 683, 199, 649, 370, 613, 884, 742, 359, 602]

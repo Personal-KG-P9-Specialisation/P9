@@ -4,39 +4,43 @@ FROM pytorch/pytorch:latest
 WORKDIR /code/
 COPY requirements.txt requirement.txt
 
+#Requirements
 #RUN pip3 install torch==1.10.2+cu113 torchvision==0.11.3+cu113 torchaudio==0.10.2+cu113 -f https://download.pytorch.org/whl/cu113/torch_stable.html
 RUN pip3 install -r requirement.txt
 RUN python3 -m spacy download en_core_web_md
 RUN python3 -m spacy_entity_linker "download_knowledge_base"
+RUN apt-get update && apt-get --assume-yes install wget
+RUN apt-get -y install default-jre
+#RUN wget https://nlp.stanford.edu/software/stanford-corenlp-latest.zip
+RUN apt-get --assume-yes install unzip
+#RUN unzip stanford-corenlp-latest.zip
+#RUN export CLASSPATH=$CLASSPATH:/stanford-corenlp-latest:
+#RUN cd stanford-corenlp-4.4.0 && java -mx4g -cp "*" edu.stanford.nlp.pipeline.StanfordCoreNLPServer -port 9001 -timeout 15000
 
+#Code Base
 COPY /triple_extraction/ /code/triple_extraction/
 COPY /entity_linking/ /code/entity_linking/
 COPY /experiments/ /code/experiments/
+COPY /coreference_resolution /code/coreference_resolution/
+COPY /preprocess /code/preprocess
 COPY pkg_baseline.py /code/pkg_baseline.py
-RUN apt-get update && apt-get --assume-yes install git
-RUN git clone https://huggingface.co/bert-base-cased
 
-##TTAD dataset
-RUN mkdir data
-RUN mkdir -p data/generated
-#RUN mkdir -p data/generated/generated_data
-
-#OUTPUTs
-#RUN mkdir outputs
-#RUN mkdir -p outputs/model
-#RUN mkdir -p outputs/logs
-
+#Data used to train SPN4RE relation extraction
 COPY /triple_extraction/SPN4RE/data/WebNLG/clean_WebNLG/train_new_new_v2.json /data/train.json
 COPY /triple_extraction/SPN4RE/data/WebNLG/clean_WebNLG/valid_new_new_v2.json /data/valid.json
 COPY /triple_extraction/SPN4RE/data/WebNLG/clean_WebNLG/test_new_new_v2.json /data/test.json
 
-ENV traindata="/data/train.json" validdata="/data/valid.json" testdata="/data/test.json" generated_data="/outputs/generated_data/" bert="/code/bert-base-cased/" modelpath="outputs/model/" logs="outputs/logs"
-RUN apt-get --assume-yes install curl && apt-get install git-lfs && apt-get install wget
-RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
+#Install a BERT language model for English language.
+RUN apt-get --assume-yes install git
+RUN git clone https://huggingface.co/bert-base-cased
+RUN apt-get install git-lfs
+RUN wget https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh
+RUN bash script.deb.sh
 RUN cd bert-base-cased && git lfs pull
 
 #get trained model
-RUN pip3 install gdown && gdown --id 1SOCFaqkBcB3SFj778n3MP0QMPFri3_J9 && apt-get --assume-yes install unzip && unzip nSetPred4RE_WebNLG_epoch_3_f1_0.3928.zip && mv nSetPred4RE_WebNLG_epoch_3_f1_0.3928.model code
+RUN pip3 install gdown && gdown --id 1SOCFaqkBcB3SFj778n3MP0QMPFri3_J9 && unzip nSetPred4RE_WebNLG_epoch_3_f1_0.3928.zip
 ENV trainedmodel="/code/nSetPred4RE_WebNLG_epoch_3_f1_0.3928.model"
+RUN pip3 install stanfordcorenlp #can be removed in future
 
-CMD ["python3", "triple_extraction/SPN4RE/predict.py"]
+#CMD ["python3", "triple_extraction/SPN4RE/predict.py"]

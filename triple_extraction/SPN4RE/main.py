@@ -1,9 +1,9 @@
 import argparse, os, torch
-import random
+import random, pickle
 import numpy as np
-from utils.data import build_data
-from trainer.trainer import Trainer
-from models.setpred4RE import SetPred4RE
+from triple_extraction.SPN4RE.utils.data import build_data
+from triple_extraction.SPN4RE.trainer.trainer import Trainer
+from triple_extraction.SPN4RE.models.setpred4RE import SetPred4RE
 
 
 def str2bool(v):
@@ -93,7 +93,7 @@ if __name__ == '__main__':
     torch.cuda.is_available()
     
     set_seed(args.random_seed)
-    
+    pickle.dump(args, open(os.getenv('generated_data')+"args.pickl","wb"))
     data = build_data(args)
     model = SetPred4RE(args, 61)
     

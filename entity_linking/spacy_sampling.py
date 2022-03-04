@@ -15,8 +15,9 @@ def annotate(nlp, text):
 
     return linked_entity_list
 
-if __name__ == '__main__':
-    f = open('../data/random_sample/sample.json')
+
+def entity_sampling(src_file, out_file):
+    f = open(src_file)
     data = json.load(f)
     f.close()
 
@@ -28,6 +29,10 @@ if __name__ == '__main__':
             linked_entity_list = annotate(nlp, j["utterance"])
             j["linked_entities"] = linked_entity_list
 
-    f = open("../data/random_sample/sample_entities.json", "w")
+    f = open(out_file, "w")
     json.dump(data, f)
     f.close()
+
+
+if __name__ == '__main__':
+    entity_sampling('../data/random_sample/sample.json', "../data/random_sample/sample_entities.json")

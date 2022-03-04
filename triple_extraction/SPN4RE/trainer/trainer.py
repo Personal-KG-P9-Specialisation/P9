@@ -2,9 +2,9 @@ import torch, random, gc
 from torch import nn, optim
 from tqdm import tqdm
 from transformers import AdamW
-from utils.average_meter import AverageMeter
-from utils.functions import formulate_gold
-from utils.metric import metric, num_metric, overlap_metric
+from triple_extraction.SPN4RE.utils.average_meter import AverageMeter
+from triple_extraction.SPN4RE.utils.functions import formulate_gold
+from triple_extraction.SPN4RE.utils.metric import metric, num_metric, overlap_metric
 
 
 class Trainer(nn.Module):

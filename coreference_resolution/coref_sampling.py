@@ -10,13 +10,16 @@ def convert_chains (coref_chains):
         new_coref_chains.append(corefs)
     return new_coref_chains
 
-if __name__ == '__main__':
-    f = open('../data/random_sample/sample_v2_results.json')
+def coref_sample(data_path, output_path, docker_service = None):
+    f = open(data_path)
     data = json.load(f)
     f.close()
 
-    # RUN THIS FIRST FROM NLP FOLDER: java -mx4g -cp "*" edu.stanford.nlp.pipeline.StanfordCoreNLPServer -port 9001 -timeout 15000 
-    nlp = StanfordCoreNLP('http://localhost', port=9001)
+    # RUN THIS FIRST FROM NLP FOLDER: java -mx4g -cp "*" edu.stanford.nlp.pipeline.StanfordCoreNLPServer -port 9001 -timeout 15000
+    if docker_service is None:
+        nlp = StanfordCoreNLP('http://localhost', port=9001)
+    else:
+        nlp = StanfordCoreNLP('http://'+docker_service, port=9001)
     num = 0
 
     for i in data:
@@ -33,6 +36,9 @@ if __name__ == '__main__':
 
     nlp.close()
 
-    f = open("../data/random_sample/sample_v2_results.json", "w")
+    f = open(output_path, "w")
     json.dump(data, f)
     f.close()
+
+if __name__ == '__main__':
+    coref_sample('../data/random_sample/sample_v2_results.json', '../data/random_sample/sample_v2_results.json')

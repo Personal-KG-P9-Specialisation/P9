@@ -1,6 +1,6 @@
-from utils.alphabet import Alphabet
+from .alphabet import Alphabet
 import os, pickle, copy, sys, copy
-from utils.functions import data_process
+from .functions import data_process
 try:
     from transformers import BertTokenizer
 except:
