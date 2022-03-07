@@ -1,21 +1,15 @@
-#FROM python:3.8
 FROM pytorch/pytorch:latest
 
 WORKDIR /code/
 COPY requirements.txt requirement.txt
 
 #Requirements
-#RUN pip3 install torch==1.10.2+cu113 torchvision==0.11.3+cu113 torchaudio==0.10.2+cu113 -f https://download.pytorch.org/whl/cu113/torch_stable.html
 RUN pip3 install -r requirement.txt
 RUN python3 -m spacy download en_core_web_md
 RUN python3 -m spacy_entity_linker "download_knowledge_base"
 RUN apt-get update && apt-get --assume-yes install wget
 RUN apt-get -y install default-jre
-#RUN wget https://nlp.stanford.edu/software/stanford-corenlp-latest.zip
 RUN apt-get --assume-yes install unzip
-#RUN unzip stanford-corenlp-latest.zip
-#RUN export CLASSPATH=$CLASSPATH:/stanford-corenlp-latest:
-#RUN cd stanford-corenlp-4.4.0 && java -mx4g -cp "*" edu.stanford.nlp.pipeline.StanfordCoreNLPServer -port 9001 -timeout 15000
 
 #Code Base
 COPY /triple_extraction/ /code/triple_extraction/

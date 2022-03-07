@@ -1,7 +1,8 @@
 import json
 from stanfordcorenlp import StanfordCoreNLP
 
-def convert_chains (coref_chains):
+
+def convert_chains(coref_chains):
     new_coref_chains = list()
     for chain in coref_chains:
         corefs = list()
@@ -10,7 +11,8 @@ def convert_chains (coref_chains):
         new_coref_chains.append(corefs)
     return new_coref_chains
 
-def coref_sample(data_path, output_path, docker_service = None):
+
+def coref_sample(data_path, output_path, docker_service=None):
     f = open(data_path)
     data = json.load(f)
     f.close()
@@ -19,7 +21,7 @@ def coref_sample(data_path, output_path, docker_service = None):
     if docker_service is None:
         nlp = StanfordCoreNLP('http://localhost', port=9001)
     else:
-        nlp = StanfordCoreNLP('http://'+docker_service, port=9001)
+        nlp = StanfordCoreNLP('http://' + docker_service, port=9001)
     num = 0
 
     for i in data:
@@ -39,6 +41,7 @@ def coref_sample(data_path, output_path, docker_service = None):
     f = open(output_path, "w")
     json.dump(data, f)
     f.close()
+
 
 if __name__ == '__main__':
     coref_sample('../data/random_sample/sample_v2_results.json', '../data/random_sample/sample_v2_results.json')

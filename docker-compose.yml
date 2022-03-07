@@ -1,31 +1,19 @@
 version: "3.9"
 services:
-        build_data:
-                #build: .
-                image: pkg:latest
-                container_name: build_data
-                stdin_open: true
-                tty: true
-                environment:
-                  - datafile=pathtodatafile
-                  - samplefile=pathtosample
-                command: ["python3","-m","pkg_baseline.py", "--type", "sample"]
-
         build_pkg:
                 image: pkg:latest
+                build: .
                 container_name: build_pkg
                 stdin_open: true
                 tty: true
                 volumes:
-                  - ./triple_extraction:/code/triple_extraction
+                  #- ./triple_extraction:/code/triple_extraction #for development environment only
                   - ./data:/code/data
                   - ./outputs:/code/outputs
-                  - ./coreference_resolution:/code/coreference_resolution
-                  - ${PWD}/pkg_baseline.py:/code/pkg_baseline.py
+                  #- ./coreference_resolution:/code/coreference_resolution
+                  #- ${PWD}/pkg_baseline.py:/code/pkg_baseline.py
                 depends_on:
                   - run_coref
-                links:
-                  - "run_coref:localhost"
                 command: ["python3","pkg_baseline.py", "--type", "sample"] #triple_extraction/SPN4RE/predict.py
                 environment:
                   - DATA=pathtofile
@@ -50,10 +38,9 @@ services:
                   - "9001:9001"
                 command: java -mx4g -cp "stanford-corenlp-4.4.0/*" edu.stanford.nlp.pipeline.StanfordCoreNLPServer -port 9001 -timeout 15000
 
-        train_model:
-                image: test:test
-                #depends_on:
-                #  - build_data
+        train_SPN4RE:
+                image: pkg:latest
+                build: .
                 container_name: model_train
                 stdin_open: true #docker run -i
                 tty: true # docker run -t
@@ -70,28 +57,11 @@ services:
                   - traindata=/data/train.json
                   - validdata=/data/valid.json
                   - testdata=/data/test.json
-                  - generated_data=/outputs/generated_data/
+                  - generated_data=/code/outputs/generated_data/
                   - bert=/code/bert-base-cased/
-                  - modelpath=/outputs/model/
-                  - logs=/outputs/logs
-
-
-
-        architecture01:
-                image: test:test
-                container_name: SPNarchitecture
-                stdin_open: true
-                tty: true
-                command: ["python3","/code/triple_extraction/SPN4RE/predict.py"]
-                volumes:
-                  - type: bind
-                    source: ./triple_extraction
-                    target: /code/triple_extraction
-                environment:
-                  - trainedmodel=/code/nSetPred4RE_WebNLG_epoch_3_f1_0.3928.model
-                  - trainedargs=/code/args.pickle
-                  - traindata=/data/train.json
-                  - validdata=/data/valid.json
-                  - testdata=/data/test.json
-                  - generated_data=/outputs/generated_data/
-                  - bert=/code/bert-base-cased/
+                  - modelpath=/code/outputs/model/
+                  - logs=/code/outputs/logs
+                  - num_generated_triples=10
+                  - num_decoder_layers=3
+                  - max_epoch=50
+                  - use_gpu=True

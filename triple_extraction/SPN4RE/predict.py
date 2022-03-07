@@ -1,6 +1,4 @@
 import argparse, os, torch,json,sys
-sys.path.insert(0,"/code/triple_extraction/SPN4RE/models")
-print(sys.path)
 from triple_extraction.SPN4RE.models.setpred4RE import SetPred4RE
 from triple_extraction.SPN4RE.utils.data import build_data
 parser = argparse.ArgumentParser()

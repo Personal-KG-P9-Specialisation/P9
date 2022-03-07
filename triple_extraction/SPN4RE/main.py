@@ -32,35 +32,35 @@ def set_seed(seed):
     torch.backends.cudnn.benchmark = False
     torch.backends.cudnn.deterministic = True
 
-def remove_accents(text: str) -> str:
-        accents_translation_table = str.maketrans(
-                    "áéíóúýàèìòùỳâêîôûŷäëïöüÿñÁÉÍÓÚÝÀÈÌÒÙỲÂÊÎÔÛŶÄËÏÖÜŸ",
-                        "aeiouyaeiouyaeiouyaeiouynAEIOUYAEIOUYAEIOUYAEIOUY"
-                            )
-        return text.translate(accents_translation_table)
 
-#to train set environment variables to strin path to json files: 'traindata', validdata, testdata
-#generated data directory, set environment variables: generated_data
+def remove_accents(text: str) -> str:
+    accents_translation_table = str.maketrans(
+        "áéíóúýàèìòùỳâêîôûŷäëïöüÿñÁÉÍÓÚÝÀÈÌÒÙỲÂÊÎÔÛŶÄËÏÖÜŸ",
+        "aeiouyaeiouyaeiouyaeiouynAEIOUYAEIOUYAEIOUYAEIOUY"
+    )
+    return text.translate(accents_translation_table)
+
+
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser()
     data_arg = add_argument_group('Data')
-    
-    torch.cuda.is_available()
-    data_arg.add_argument('--dataset_name', type=str, default="WebNLG")
-    data_arg.add_argument('--train_file', type=str, default=os.getenv('traindata')) #"./data/WebNLG/clean_WebNLG/train_new_new_v2.json"
-    data_arg.add_argument('--valid_file', type=str, default=os.getenv('validdata')) #"./data/WebNLG/clean_WebNLG/valid_new_new_v2.json"
-    data_arg.add_argument('--test_file', type=str, default=os.getenv('testdata')) #"./data/WebNLG/clean_WebNLG/test_new_new_v2.json"
 
-    data_arg.add_argument('--generated_data_directory', type=str, default=os.getenv('generated_data')) # "./data/generated_data/"
-    data_arg.add_argument('--generated_param_directory', type=str, default=os.getenv('generated_data') + '/model_param/') #"./data/generated_data/model_param/"
-    data_arg.add_argument('--bert_directory', type=str, default=os.getenv('bert')) #"./bert_base_cased/"
+    data_arg.add_argument('--dataset_name', type=str, default="WebNLG")
+    data_arg.add_argument('--train_file', type=str, default=os.getenv('traindata'))
+    data_arg.add_argument('--valid_file', type=str, default=os.getenv('validdata'))
+    data_arg.add_argument('--test_file', type=str, default=os.getenv('testdata'))
+
+    data_arg.add_argument('--generated_data_directory', type=str, default=os.getenv('generated_data'))
+    data_arg.add_argument('--generated_param_directory', type=str,
+                          default=os.getenv('generated_data') + '/model_param/')
+    data_arg.add_argument('--bert_directory', type=str, default=os.getenv('bert'))
     data_arg.add_argument("--partial", type=str2bool, default=False)
 
     learn_arg = add_argument_group('Learning')
     learn_arg.add_argument('--model_name', type=str, default="Set-Prediction-Networks")
-    learn_arg.add_argument('--num_generated_triples', type=int, default=10)
-    learn_arg.add_argument('--num_decoder_layers', type=int, default=3)
+    learn_arg.add_argument('--num_generated_triples', type=int, default=int(os.getenv('num_generated_triples')))
+    learn_arg.add_argument('--num_decoder_layers', type=int, default=int(os.getenv('num_decoder_layers')))
     learn_arg.add_argument('--matcher', type=str, default="avg", choices=['avg', 'min'])
     learn_arg.add_argument('--na_rel_coef', type=float, default=1)
     learn_arg.add_argument('--rel_loss_weight', type=float, default=1)
@@ -68,7 +68,7 @@ if __name__ == '__main__':
     learn_arg.add_argument('--tail_ent_loss_weight', type=float, default=2)
     learn_arg.add_argument('--fix_bert_embeddings', type=str2bool, default=True)
     learn_arg.add_argument('--batch_size', type=int, default=8)
-    learn_arg.add_argument('--max_epoch', type=int, default=50)
+    learn_arg.add_argument('--max_epoch', type=int, default=os.getenv('max_epoch'))
     learn_arg.add_argument('--gradient_accumulation_steps', type=int, default=1)
     learn_arg.add_argument('--decoder_lr', type=float, default=2e-5)
     learn_arg.add_argument('--encoder_lr', type=float, default=1e-5)
@@ -78,27 +78,22 @@ if __name__ == '__main__':
     learn_arg.add_argument('--optimizer', type=str, default='AdamW', choices=['Adam', 'AdamW'])
     evaluation_arg = add_argument_group('Evaluation')
     evaluation_arg.add_argument('--n_best_size', type=int, default=100)
-    evaluation_arg.add_argument('--max_span_length', type=int, default=12) #NYT webNLG 10
+    evaluation_arg.add_argument('--max_span_length', type=int, default=12)  # NYT webNLG 10
     misc_arg = add_argument_group('MISC')
     misc_arg.add_argument('--refresh', type=str2bool, default=False)
     misc_arg.add_argument('--use_gpu', type=str2bool, default=True)
     misc_arg.add_argument('--visible_gpu', type=int, default=1)
     misc_arg.add_argument('--random_seed', type=int, default=1)
 
-
     args, unparsed = get_args()
     os.environ["CUDA_VISIBLE_DEVICES"] = str(args.visible_gpu)
     for arg in vars(args):
-        print(arg, ":",  getattr(args, arg))
-    torch.cuda.is_available()
-    
+        print(arg, ":", getattr(args, arg))
+
     set_seed(args.random_seed)
-    pickle.dump(args, open(os.getenv('generated_data')+"args.pickl","wb"))
+    pickle.dump(args, open(os.getenv('generated_data') + "args.pickle", "wb"))
     data = build_data(args)
     model = SetPred4RE(args, 61)
-    
-    torch.cuda.is_available()
-    
+
     trainer = Trainer(model, data, args)
     trainer.train_model()
-
