@@ -72,6 +72,3 @@ if __name__ == "__main__":
         create_sample()
     elif args.type == 'architecture':
         pass
-    #uttrance = "My name is Michael Jordan"
-    #data = triple_and_ent_link(uttrance)
-    #print(data)
