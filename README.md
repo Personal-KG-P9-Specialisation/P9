@@ -10,7 +10,7 @@ This output will be evaluated manually according to established criteria, which 
 
 ## Coreference Resolution
 
-This phase concerns the extracting chains of coreference. Currently, we have experiemnted with:
+This phase concerns the extracting chains of coreference. Currently, we have experimented with:
 
 - Stanford Core NLP Coreference Resolution
 
