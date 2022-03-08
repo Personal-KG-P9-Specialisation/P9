@@ -1,4 +1,4 @@
-import torch, collections,sys, traceback
+import torch, collections,sys, traceback, os
 
 
 def list_index(list1: list, list2: list) -> list:
@@ -15,14 +15,6 @@ def list_index(list1: list, list2: list) -> list:
                             index = (i, j)
                             break
             return index[0], index[1]
-    #except UnboundLocalError:
-    #    print(traceback.format_exc())
-    #    print("index not bound:\n")
-    #    print("inputs :",list1,list2)
-    #    sys.exit()
-
-
-
 
 
 # def list_index(list1: list, list2: list) -> list:
@@ -64,22 +56,18 @@ def data_process(input_doc, relational_alphabet, tokenizer):
             relation_id = relational_alphabet.get_index(triple["label"])
             try:
                 head_start_index, head_end_index = list_index(head_token, token_sent)
-            #print("head: ", head_entity,head_token)
                 assert head_end_index >= head_start_index
                 tail_start_index, tail_end_index = list_index(tail_token, token_sent)
-                #print("tail: ", tail_start_index, tail_end_index)
-                #print("tail conti: ", tail_entity, tail_token)
-                #print("token: ",token_sent)
                 assert tail_end_index >= tail_start_index
             except UnboundLocalError:
-                with open("/home/test/Github/code/SPN4RE/log.txt","a") as f:
+                with open(os.getenv('logs')+"/dataerrorlog.txt","a") as f: #"/home/test/Github/code/SPN4RE/log.txt"
                     f.write("UnboundError: \t")
                     f.write(str(triple))
                     f.write("\t"+lines[i]["sentText"]+"\n")
                     f.flush()
                 continue
             except AssertionError:
-                with open("/home/test/Github/code/SPN4RE/log.txt","a") as f:
+                with open(os.getenv('logs')+"/dataerrorlog.txt","a") as f: #"/home/test/Github/code/SPN4RE/log.txt"
                     f.write("AssertionError:\t")
                     f.write(str(triple))
                     f.write("\t"+lines[i]["sentText"]+"\n")

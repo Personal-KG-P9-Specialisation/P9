@@ -8,8 +8,8 @@ def annotate(client,text):
         triple_list.append(t_list)
     return triple_list
 
-if __name__ == '__main__':
-    f = open('../data/random_sample/sample.json')
+def openie_sampling(src_file, out_file):
+    f = open(src_file)
     data = json.load(f)
     f.close()
 
@@ -23,6 +23,10 @@ if __name__ == '__main__':
                 triple_list = annotate(client, j["utterance"])
                 j["extracted_triple_openIE"] = triple_list
 
-    f = open("../data/random_sample/sample_openie_triples.json", "w")
+    f = open(out_file, "w")
     json.dump(data, f)
     f.close()
+
+if __name__ == '__main__':
+    openie_sampling('../data/random_sample/sample.json', "../data/random_sample/sample_openie_triples.json")
+

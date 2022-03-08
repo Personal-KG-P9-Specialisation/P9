@@ -1,0 +1,67 @@
+version: "3.9"
+services:
+        build_pkg:
+                image: pkg:latest
+                build: .
+                container_name: build_pkg
+                stdin_open: true
+                tty: true
+                volumes:
+                  #- ./triple_extraction:/code/triple_extraction #for development environment only
+                  - ./data:/code/data
+                  - ./outputs:/code/outputs
+                  #- ./coreference_resolution:/code/coreference_resolution
+                  #- ${PWD}/pkg_baseline.py:/code/pkg_baseline.py
+                depends_on:
+                  - run_coref
+                command: ["python3","pkg_baseline.py", "--type", "sample"] #triple_extraction/SPN4RE/predict.py
+                environment:
+                  - DATA=pathtofile
+                  - bert=/code/bert-base-cased/
+                  - datafile=/code/data/ConvAI2/test_both_original_final.txt
+                  - samplefile=/code/outputs/sample.json
+                  - traindata=/code/triple_extraction/SPN4RE/data/WebNLG/clean_WebNLG/train_new_new_v2.json
+                  - validdata=/code/triple_extraction/SPN4RE/data/WebNLG/clean_WebNLG/valid_new_new_v2.json
+                  - testdata=/code/triple_extraction/SPN4RE/data/WebNLG/clean_WebNLG/test_new_new_v2.json
+                  - generated_data=/code/outputs/generated_data/
+                  - modelpath=/code/nSetPred4RE_WebNLG_epoch_3_f1_0.3928.model
+                  - logs=/code/outputs/logs
+        run_coref:
+                image: coref:latest
+                build:
+                  context: .
+                  dockerfile: ./coreference_resolution/Dockerfile
+                container_name: run_coref
+                stdin_open: true
+                tty: true
+                ports:
+                  - "9001:9001"
+                command: java -mx4g -cp "stanford-corenlp-4.4.0/*" edu.stanford.nlp.pipeline.StanfordCoreNLPServer -port 9001 -timeout 15000
+
+        train_SPN4RE:
+                image: pkg:latest
+                build: .
+                container_name: model_train
+                stdin_open: true #docker run -i
+                tty: true # docker run -t
+                command: ["python3","/code/triple_extraction/SPN4RE/main.py"]
+                volumes:
+                        - type: bind
+                          source: ./outputs 
+                          target: /code/outputs
+                        - type: bind
+                          source: ./outputs
+                          target: /code/data
+
+                environment:
+                  - traindata=/data/train.json
+                  - validdata=/data/valid.json
+                  - testdata=/data/test.json
+                  - generated_data=/code/outputs/generated_data/
+                  - bert=/code/bert-base-cased/
+                  - modelpath=/code/outputs/model/
+                  - logs=/code/outputs/logs
+                  - num_generated_triples=10
+                  - num_decoder_layers=3
+                  - max_epoch=50
+                  - use_gpu=True
