@@ -20,16 +20,16 @@ COPY /preprocess /code/preprocess
 COPY pkg_baseline.py /code/pkg_baseline.py
 
 #Data used to train SPN4RE relation extraction
-COPY /triple_extraction/SPN4RE/data/WebNLG/clean_WebNLG/train_new_new_v2.json /data/train.json
-COPY /triple_extraction/SPN4RE/data/WebNLG/clean_WebNLG/valid_new_new_v2.json /data/valid.json
-COPY /triple_extraction/SPN4RE/data/WebNLG/clean_WebNLG/test_new_new_v2.json /data/test.json
+#COPY /triple_extraction/SPN4RE/data/WebNLG/clean_WebNLG/train_new_new_v2.json /data/train.json
+#COPY /triple_extraction/SPN4RE/data/WebNLG/clean_WebNLG/valid_new_new_v2.json /data/valid.json
+#COPY /triple_extraction/SPN4RE/data/WebNLG/clean_WebNLG/test_new_new_v2.json /data/test.json
 
 #Install a BERT language model for English language.
 RUN apt-get --assume-yes install git
 RUN git clone https://huggingface.co/bert-base-cased
 RUN apt-get install git-lfs
 RUN wget https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh
-RUN bash script.deb.sh
+RUN bash script.deb.sh && rm script.deb.sh
 RUN cd bert-base-cased && git lfs pull
 
 #get trained model

@@ -7,7 +7,7 @@ import json
 import re
 from experiments.architecture import entity_linking, openie_extract_triples, coreference_integration
 from triple_extraction.SPN4RE.predict import predict_utterance, predict_data
-from preprocess.sampling import create_json_data, random_sample
+from preprocess.sampling import create_json_data, random_sample, create_conversation
 from coreference_resolution.coref_sampling import coref_sample
 from entity_linking.spacy_sampling import entity_sampling
 from triple_extraction.openie_sampling import openie_sampling
@@ -43,7 +43,9 @@ def create_sample():
     predict_data(output_file, output_file)
     print('SPN4RE triple extraction completed')
 
-
+def trpls_on_conv(trip_func,dialogue):
+    for msg in dialogue.messages:
+        trip_func()
 def str2bool(v):
     if isinstance(v, bool):
         return v
@@ -60,18 +62,24 @@ if __name__ == "__main__":
     parser.add_argument('--type', type=str, required=True, nargs='?',
                         help='type \'sample\' for sample creation and \'architecture\' for annotation of text')
     parser.add_argument('--data', type=str, nargs='?')
-    parser.add_argument('--coref', type=str2bool, nargs='?',const=True,default=False,
+    parser.add_argument('--coref', type=str2bool, nargs='?', const=True, default=False,
                         help='coref can be added by passing true to this flag')
     parser.add_argument('--SPN4RE', type=str2bool, nargs='?', const=True, default=True,
                         help='SPN4RE instead of OPENIE triple extraction')
 
     args = parser.parse_args()
-    for arg in vars(args):
-            print(arg, ":",  getattr(args, arg))
+
     if args.type == 'sample':
         create_sample()
-    elif args.type == 'architecture':
-        pass
-    #uttrance = "My name is Michael Jordan"
-    #data = triple_and_ent_link(uttrance)
-    #print(data)
+    elif args.type == 'conv':
+        conv = create_conversation('code/inputs/'+args.data)
+        if args.coref == True:
+            if args.SPN4RE:
+                triple_and_coref_ent_link("")
+            else:
+                triple_and_coref_ent_link("", triple='openIE')
+        else:
+            if args.SPN4RE:
+                triple_and_ent_link("")
+            else:
+                triple_and_ent_link("", triple='openIE')
