@@ -65,6 +65,7 @@ where Standford Core NLP Coreference Resolution is an optional step.
 - Nvidia GPU (for improved training speed)
 - NVIDIA container toolkit
 ###Docker Compose
+###### Random Sample
 The random sample of conversations with annotations from each sub-task can be performed by first building the image, then running docker-compose on the build_pkg service:
 ```
 docker build -t pkg:latest .
@@ -94,3 +95,25 @@ This will create a random sample of 15 conversations annotated with each of the 
 ```
 After the sampling, we have annotated each field containing "criteria" manually using the presented criteria.
 The JSON file with the manual annotation can be found in [/data/random_sample/sample_annotated.json](/data/random_sample/sample_annotated.json)
+###### On own source data
+To run the code on an input conversation, the format of the conversation should be a .txt where each utterance is separated by the newline character:
+```
+My name is X
+Hello X, how are you doing?
+```
+To get the triples, run the following command
+```
+docker-compose up --remove-orphans --force-recreate -d build_pkg_from_input
+```
+The default conversation file is /inputs/conv.txt
+
+To use a different file, make a volume with the conversation file with the specified path and run the following command, where CONV.txt should be replaced by the path to the conv file.
+```
+DATA=CONV.txt docker-compose up --remove-orphans --force-recreate -d build_pkg_from_input
+```
+The output triples for the conversation will be printed to the terminal, which can be accessed using:
+```docker-compose logs build_pkg_from_input``` and saved in a triples_from_conv.jsonl file in the output directory.
+
+Furthermore, the following environment variables can be changed to run the architecture on the input conversation:
+- coref (Default: False. True if coref should be applied, and False if it should be omitted)
+- spn (Default: True. True, if Set Prediction Network should be used as triple extractor. False, if OpenIE should be used)
