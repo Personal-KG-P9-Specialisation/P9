@@ -39,13 +39,13 @@ services:
                   - ./outputs:/code/outputs
                   - ./inputs:/code/inputs
                   #- ./coreference_resolution:/code/coreference_resolution
-                  #- ${PWD}/pkg_baseline.py:/code/pkg_baseline.py
+                  # - ./experiments:/code/experiments
+                  #- ./pkg_baseline.py:/code/pkg_baseline.py
                 depends_on:
                   - run_coref
-                command: ["python3","pkg_baseline.py", "--type", "conv", "--data","${DATA}", "--SPN4RE", "$spn", "--coref", "${coref}"]
                 environment:
-                  - DATA=conv.txt
-                  - coref=False
+                  - DATA=/code/inputs/conv.txt
+                  - coref=True
                   - spn=True
                   - bert=/code/bert-base-cased/
                   - datafile=/code/data/ConvAI2/test_both_original_final.txt
@@ -54,8 +54,9 @@ services:
                   - validdata=/code/data/SPN4RE_data/valid.json
                   - testdata=/code/data/SPN4RE_data/train.json/test.json
                   - generated_data=/code/outputs/generated_data/
-                  - modelpath=/code/nSetPred4RE_WebNLG_epoch_3_f1_0.3928.model
+                  - trainedmodel=/code/nSetPred4RE_WebNLG_epoch_3_f1_0.3928.model
                   - logs=/code/outputs/logs
+                command: python3 pkg_baseline.py --type conv 
         run_coref:
                 image: coref:latest
                 build:
@@ -74,8 +75,9 @@ services:
                 container_name: model_train
                 stdin_open: true #docker run -i
                 tty: true # docker run -t
-                command: ["python3","/code/triple_extraction/SPN4RE/main.py"]
+                command: ["python3","train.py"]
                 volumes:
+                        - ./train.py:/code/train.py
                         - type: bind
                           source: ./outputs 
                           target: /code/outputs

@@ -66,6 +66,6 @@ def load_data_setting(args):
     with open(saved_path, 'rb') as fp:
         data = pickle.load(fp)
     print("Data setting is loaded from file: ", saved_path)
-    data.show_data_summary()
+    #data.show_data_summary()
     return data
 

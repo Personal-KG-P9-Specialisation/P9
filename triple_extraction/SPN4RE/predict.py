@@ -3,12 +3,22 @@ from triple_extraction.SPN4RE.models.setpred4RE import SetPred4RE
 from triple_extraction.SPN4RE.utils.data import build_data
 parser = argparse.ArgumentParser()
 import pickle
-from triple_extraction.SPN4RE.main import str2bool,set_seed
 try:
     from transformers import BertTokenizer
 except:
     from pytorch_transformers import BertTokenizer
+def str2bool(v):
+        return v.lower() in ('true')
 
+def set_seed(seed):
+    random.seed(seed)
+    os.environ['PYTHONHASHSEED'] = str(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    torch.cuda.manual_seed(seed)
+    torch.cuda.manual_seed_all(seed)
+    torch.backends.cudnn.benchmark = False
+    torch.backends.cudnn.deterministic = True
 
 def add_argument_group(name):
     arg = parser.add_argument_group(name)
@@ -27,53 +37,53 @@ def remove_accents(text: str) -> str:
     "aeiouyaeiouyaeiouyaeiouynAEIOUYAEIOUYAEIOUYAEIOUY"
     )
     return text.translate(accents_translation_table)
-
-
-data_arg = add_argument_group('Data')
-"""python3 -m predict --max_epoch 10 --use_gpu False"""
-data_arg.add_argument('--dataset_name', type=str, default="WebNLG")
-data_arg.add_argument('--train_file', type=str, default=os.getenv('traindata'))
-data_arg.add_argument('--valid_file', type=str, default=os.getenv('validdata'))
-data_arg.add_argument('--test_file', type=str, default=os.getenv('testdata'))
-
-data_arg.add_argument('--generated_data_directory', type=str, default=os.getenv('generated_data'))
-data_arg.add_argument('--generated_param_directory', type=str, default=os.getenv('generated_data') + '/model_param/')
-data_arg.add_argument('--bert_directory', type=str, default=os.getenv('bert'))
-data_arg.add_argument("--partial", type=str2bool, default=False)
-learn_arg = add_argument_group('Learning')
-learn_arg.add_argument('--model_name', type=str, default="Set-Prediction-Networks")
-learn_arg.add_argument('--num_generated_triples', type=int, default=10)
-learn_arg.add_argument('--num_decoder_layers', type=int, default=4)
-learn_arg.add_argument('--matcher', type=str, default="avg", choices=['avg', 'min'])
-learn_arg.add_argument('--na_rel_coef', type=float, default=0.25)
-learn_arg.add_argument('--rel_loss_weight', type=float, default=1)
-learn_arg.add_argument('--head_ent_loss_weight', type=float, default=2)
-learn_arg.add_argument('--tail_ent_loss_weight', type=float, default=2)
-learn_arg.add_argument('--fix_bert_embeddings', type=str2bool, default=True)
-learn_arg.add_argument('--batch_size', type=int, default=8)
-learn_arg.add_argument('--max_epoch', type=int, default=50)
-learn_arg.add_argument('--gradient_accumulation_steps', type=int, default=1)
-learn_arg.add_argument('--decoder_lr', type=float, default=0.00005)
-learn_arg.add_argument('--encoder_lr', type=float, default=0.00002)
-learn_arg.add_argument('--lr_decay', type=float, default=0.02)
-learn_arg.add_argument('--weight_decay', type=float, default=0.000001)
-learn_arg.add_argument('--max_grad_norm', type=float, default=20)    
-learn_arg.add_argument('--optimizer', type=str, default='AdamW', choices=['Adam', 'AdamW'])
-evaluation_arg = add_argument_group('Evaluation')
-evaluation_arg.add_argument('--n_best_size', type=int, default=100)
-evaluation_arg.add_argument('--max_span_length', type=int, default=10)
-misc_arg = add_argument_group('MISC')
-misc_arg.add_argument('--refresh', type=str2bool, default=False)
-misc_arg.add_argument('--use_gpu', type=str2bool, default=True)
-misc_arg.add_argument('--visible_gpu', type=int, default=1)
-misc_arg.add_argument('--random_seed', type=int, default=1)
-
-args, unparsed = get_args()
-os.environ["CUDA_VISIBLE_DEVICES"] = str(args.visible_gpu)
+args = None
 if __name__ == "__main__":
-    for arg in vars(args):
-            print(arg, ":",  getattr(args, arg))
-set_seed(args.random_seed)
+
+    data_arg = add_argument_group('Data')
+    data_arg.add_argument('--dataset_name', type=str, default="WebNLG")
+    data_arg.add_argument('--train_file', type=str, default=os.getenv('traindata'))
+    data_arg.add_argument('--valid_file', type=str, default=os.getenv('validdata'))
+    data_arg.add_argument('--test_file', type=str, default=os.getenv('testdata'))
+
+    data_arg.add_argument('--generated_data_directory', type=str, default=os.getenv('generated_data'))
+    data_arg.add_argument('--generated_param_directory', type=str, default=os.getenv('generated_data') + '/model_param/')
+    data_arg.add_argument('--bert_directory', type=str, default=os.getenv('bert'))
+    data_arg.add_argument("--partial", type=str2bool, default=False)
+    learn_arg = add_argument_group('Learning')
+    learn_arg.add_argument('--model_name', type=str, default="Set-Prediction-Networks")
+    learn_arg.add_argument('--num_generated_triples', type=int, default=10)
+    learn_arg.add_argument('--num_decoder_layers', type=int, default=4)
+    learn_arg.add_argument('--matcher', type=str, default="avg", choices=['avg', 'min'])
+    learn_arg.add_argument('--na_rel_coef', type=float, default=0.25)
+    learn_arg.add_argument('--rel_loss_weight', type=float, default=1)
+    learn_arg.add_argument('--head_ent_loss_weight', type=float, default=2)
+    learn_arg.add_argument('--tail_ent_loss_weight', type=float, default=2)
+    learn_arg.add_argument('--fix_bert_embeddings', type=str2bool, default=True)
+    learn_arg.add_argument('--batch_size', type=int, default=8)
+    learn_arg.add_argument('--max_epoch', type=int, default=50)
+    learn_arg.add_argument('--gradient_accumulation_steps', type=int, default=1)
+    learn_arg.add_argument('--decoder_lr', type=float, default=0.00005)
+    learn_arg.add_argument('--encoder_lr', type=float, default=0.00002)
+    learn_arg.add_argument('--lr_decay', type=float, default=0.02)
+    learn_arg.add_argument('--weight_decay', type=float, default=0.000001)
+    learn_arg.add_argument('--max_grad_norm', type=float, default=20)    
+    learn_arg.add_argument('--optimizer', type=str, default='AdamW', choices=['Adam', 'AdamW'])
+    evaluation_arg = add_argument_group('Evaluation')
+    evaluation_arg.add_argument('--n_best_size', type=int, default=100)
+    evaluation_arg.add_argument('--max_span_length', type=int, default=10)
+    misc_arg = add_argument_group('MISC')
+    misc_arg.add_argument('--refresh', type=str2bool, default=False)
+    misc_arg.add_argument('--use_gpu', type=str2bool, default=True)
+    misc_arg.add_argument('--visible_gpu', type=int, default=1)
+    misc_arg.add_argument('--random_seed', type=int, default=1)
+
+    args, unparsed = get_args()
+    os.environ["CUDA_VISIBLE_DEVICES"] = str(args.visible_gpu)
+    if __name__ == "__main__":
+        for arg in vars(args):
+                print(arg, ":",  getattr(args, arg))
+    set_seed(args.random_seed)
 
 
 def predict_triples(utterance, model, tokenizer, relation_alphabet, version='old'):
@@ -111,6 +121,12 @@ def load_model(path_model):
     model.load_state_dict(state_dict["state_dict"])
     return model
 
+def load_model_s_pred(path_model, arg):
+    model = SetPred4RE(arg, 61)
+    state_dict = torch.load(path_model, map_location=torch.device('cpu'))
+    model.load_state_dict(state_dict["state_dict"])
+    return model
+
 def predict_data(path, save_path):
     tokenizer = BertTokenizer.from_pretrained(args.bert_directory, do_lower_case=False)
     data = build_data(args)
@@ -124,13 +140,13 @@ def predict_data(path, save_path):
     json.dump(conv_data,open(save_path, "w"))
 def predict_utterance(utt):
     arg = pickle.load(open(os.getenv('generated_data') + "args.pickle", "rb"))
-    tokenizer = BertTokenizer.from_pretrained(arg.bert_directory, do_lower_case=False)
+    #arg.bert_directory = os.getenv('bert')
+    tokenizer = BertTokenizer.from_pretrained(os.getenv('bert'), do_lower_case=False)
     data = build_data(arg)
-    model = load_model(os.getenv('trainedmodel'))
+    model = load_model_s_pred(os.getenv('trainedmodel'),arg)
     return predict_triples(utt, model, tokenizer, data.relational_alphabet, version="new")
 
-if __name__ == "__main__":
-    print("predict file")
+
 #predict_data("../data/random_sample/sample_v2_results.json","../data/random_sample/sample_v2_results_spn_added.json")
 
 #test
